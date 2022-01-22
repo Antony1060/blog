@@ -10,7 +10,12 @@ export const get: RequestHandler = async ({ params: { post } }) => {
     
     if(!found) return { status: 404 };
 
+    const processed = await found[1]();
+
     return {
-        body: (await found[1]()).metadata
+        body: {
+            metadata: processed.metadata,
+            content: processed.default.render()
+        }
     }
 }

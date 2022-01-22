@@ -7,7 +7,7 @@ import { config as mdsvexConfig } from './mdsvex.config.js';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	extensions: [".svelte", ".md", ".svx"],
+	extensions: [".svelte", ...mdsvexConfig.extensions],
 	preprocess: [preprocess(), mdsvex(mdsvexConfig)],
 
 	kit: {
