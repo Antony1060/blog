@@ -1,5 +1,5 @@
 <script lang=ts>
-    import "../../../static/prism-material-dark.css"
+    import "../../../static/prism-material-gh.css"
     import type { Post } from "../../routes/posts/Post.type";
 
     export let post: Post;
