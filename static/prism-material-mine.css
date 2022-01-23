@@ -63,7 +63,7 @@ pre[class*="language-"] {
 }
 
 .token.attr-name {
-	color: #ffcb6b;
+	color: #ffd173;
 }
 
 .token.attr-value {
@@ -75,11 +75,11 @@ pre[class*="language-"] {
 }
 
 .token.boolean {
-	color: #c792ea;
+	color: #dfbfff;
 }
 
 .token.builtin {
-	color: #ffcb6b;
+	color: #dfbfff;
 }
 
 .token.cdata {
@@ -87,39 +87,39 @@ pre[class*="language-"] {
 }
 
 .token.char {
-	color: #80cbc4;
+	color: #d5ff80;
 }
 
 .token.class {
-	color: #ffcb6b;
+	color: #5ccfe6;
 }
 
 .token.class-name {
-	color: #f2ff00;
+	color: #5ccfe6;
 }
 
 .token.comment {
-	color: #616161;
+	color: #b8cfe680;
 }
 
 .token.constant {
-	color: #c792ea;
+	color: #dfbfff;
 }
 
 .token.deleted {
-	color: #ff6666;
+	color: #f27983;
 }
 
 .token.doctype {
-	color: #616161;
+	color: #b8cfe680;
 }
 
 .token.entity {
-	color: #ff6666;
+	color: #ffd173;
 }
 
 .token.function {
-	color: #c792ea;
+	color: #ffd173;
 }
 
 .token.hexcode {
@@ -132,24 +132,24 @@ pre[class*="language-"] {
 }
 
 .token.important {
-	color: #c792ea;
+	color: #5ccfe6;
 	font-weight: bold;
 }
 
 .token.inserted {
-	color: #80cbc4;
+	color: #87d96c;
 }
 
 .token.keyword {
-	color: #c792ea;
+	color: #ffad66;
 }
 
 .token.number {
-	color: #fd9170;
+	color: #dfbfff;
 }
 
 .token.operator {
-	color: #89ddff;
+	color: #f29e74;
 }
 
 .token.prolog {
@@ -157,11 +157,11 @@ pre[class*="language-"] {
 }
 
 .token.property {
-	color: #80cbc4;
+	color: #5ccfe6;
 }
 
 .token.pseudo-class {
-	color: #a5e844;
+	color: #5ccfe6;
 }
 
 .token.pseudo-element {
@@ -169,27 +169,27 @@ pre[class*="language-"] {
 }
 
 .token.punctuation {
-	color: #89ddff;
+	color: #cccac2;
 }
 
 .token.regex {
-	color: #f2ff00;
+	color: #95e6cb;
 }
 
 .token.selector {
-	color: #ff6666;
+	color: #5ccfe6;
 }
 
 .token.string {
-	color: #a5e844;
+	color: #d5ff80;
 }
 
 .token.symbol {
-	color: #c792ea;
+	color: #d5ff80;
 }
 
 .token.tag {
-	color: #ff6666;
+	color: #5ccfe6;
 }
 
 .token.unit {
@@ -197,9 +197,13 @@ pre[class*="language-"] {
 }
 
 .token.url {
-	color: #ff6666;
+	color: #ffcc66;
 }
 
 .token.variable {
-	color: #ff6666;
+	color: #cccac2;
+}
+
+.token.directive-hash {
+	color: #ffad66;
 }
