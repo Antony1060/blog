@@ -9,7 +9,7 @@ export const config = {
         backticks: false,
         dashes: "oldschool"
     },
-    layout: false, // we use the sveltekit __layout tihgy
+    layout: "./src/lib/layouts/BlogLayoutWrapper.svelte", // we use the sveltekit __layout tihgy
     rehypePlugins: [
         rehypeSlug
     ]
