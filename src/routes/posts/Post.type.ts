@@ -3,5 +3,6 @@ export type Post = {
     description: string,
     author: string,
     created: Date,
-    modified: Date
+    modified: Date,
+    hidden: boolean
 }
