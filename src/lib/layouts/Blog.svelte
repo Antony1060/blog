@@ -22,9 +22,8 @@ import { onMount } from "svelte";
 </script>
 
 <svelte:head>
+    <title>Antony | Blog - {post.title}</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
-        
         code, code * {
             font-family: 'JetBrains Mono', monospace !important;
         }
@@ -45,11 +44,12 @@ import { onMount } from "svelte";
     <h1>footer</h1>
 </div>
 
-<style>
+<style lang="scss">
     :global(.code-block-name) {
         display: block;
         font-family: 'JetBrains Mono', monospace;
-        background-color: #1c2129;
-        width: 100%;
+        padding: 0 0 0.4rem 0.6rem;
+        margin-bottom: 0.4rem;
+        border-bottom: 1px solid #16a21c66;
     }
 </style>

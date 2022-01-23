@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Index</title>
+    <title>Antony | Blog</title>
 </svelte:head>
 
 <script context="module" lang="ts">
@@ -28,3 +28,14 @@
         <a href={`posts/${post}`}>{title}</a>
     </div>
 {/each}
+
+<style lang="scss">
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+</style>

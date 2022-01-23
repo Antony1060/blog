@@ -6,7 +6,7 @@
     <span>{name}</span>
 </div>
 
-<style>
+<style lang="scss">
     span {
         color: hotpink;
     }
