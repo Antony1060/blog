@@ -7,7 +7,7 @@
     import type { Post } from "./posts/Post.type";
 
     export const load: Load = async ({ fetch }) => {
-        const posts = await fetch("/posts.json").then(res => res.json());
+        const posts = await fetch("/posts.json").then(res => res.clone().json());
 
         return { props: { posts } }
     }
