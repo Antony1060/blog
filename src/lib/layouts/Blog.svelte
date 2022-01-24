@@ -32,7 +32,6 @@ import { onMount } from "svelte";
 
 <div>
     <h1>{post.title}</h1>
-    <h4>{post.description}</h4>
     <h4>{post.author}</h4>
     <h4>{post.created}</h4>
     <h4>{post.modified}</h4>

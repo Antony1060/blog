@@ -9,7 +9,7 @@ export const get: RequestHandler = async () => {
     const resolved = await Promise.all(
         Object.entries(posts)
             .map(([path, resolver]) => resolver().then(post => ({
-                post: parse(path).name,
+                route: parse(path).name,
                 metadata: post.metadata
             })))
     )

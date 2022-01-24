@@ -1,6 +1,5 @@
 ---
 title: Test post before
-description: desc
 author: Antony
 created: 2022-01-20
 modified: 2022-01-22

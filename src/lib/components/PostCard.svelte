@@ -7,7 +7,7 @@
 </script>
 
 <div>
-    <a href={`posts/${post}`}>{meta.title}</a>
+    <a href={`posts/${post.route}`}>{meta.title}</a>
 </div>
 
 <style lang="scss">
