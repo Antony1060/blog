@@ -4,7 +4,7 @@
 <svelte:head>
     <style>
         * {
-            font-family: 'JetBrains Mono', Arial, sans-serif;
+            font-family: Roboto, Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;

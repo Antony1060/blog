@@ -4,12 +4,10 @@
 
 <script context="module" lang="ts">
     import type { Load } from "@sveltejs/kit";
-    import type { Post } from "./posts/Post.type";
-
-    type PostResponse = { post: string, metadata: Post };
+    import type { PostWithMeta } from "./posts/Post.type";
 
     export const load: Load = async ({ fetch }) => {
-        const posts: PostResponse[] = await fetch("/posts.json").then(res => res.clone().json());
+        const posts: PostWithMeta[] = await fetch("/posts.json").then(res => res.clone().json());
 
         posts
             .sort((a, b) => a.metadata.title.localeCompare(b.metadata.title))
@@ -20,22 +18,23 @@
 </script>
 
 <script lang="ts">
-    export let posts: PostResponse[];
+    import PostCard from "../lib/components/PostCard.svelte";
+
+    export let posts: PostWithMeta[];
 </script>
 
-{#each posts as { post, metadata: { title, description, author, created, modified } } (post)}
-    <div>
-        <a href={`posts/${post}`}>{title}</a>
-    </div>
-{/each}
+<div class="posts-container">
+    {#each posts as post}
+        <PostCard post={post} />
+    {/each}
+</div>
 
 <style lang="scss">
-    a {
-        color: white;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
+    .posts-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
     }
 </style>

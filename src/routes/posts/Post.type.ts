@@ -6,3 +6,5 @@ export type Post = {
     modified: Date,
     hidden: boolean
 }
+
+export type PostWithMeta = { route: string, metadata: Post };
