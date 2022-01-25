@@ -34,12 +34,16 @@
     }
 
     a {
-        color: white;
-        text-decoration: none;
+        $color: #e0e0e0;
+        color: $color;
         font-weight: 600;
+        transition: 60ms linear;
+        text-decoration: underline;
+        text-decoration-color: #00000000;
 
         &:hover {
-            text-decoration: underline;
+            transition: 60ms linear;
+            text-decoration-color: $color;
         }
     }
 
@@ -57,6 +61,7 @@
         gap: 10px;
 
         span:nth-child(2) {
+            opacity: 0.6;
             flex-shrink: 0;
         }
     }
