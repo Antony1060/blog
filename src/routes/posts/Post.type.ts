@@ -1,8 +1,9 @@
 export type Post = {
     title: string,
     author: string,
-    created: Date,
-    modified: Date,
+    tags?: string[],
+    created: Date | string,
+    modified: Date | string,
     hidden: boolean
 }
 

@@ -6,24 +6,36 @@
     const meta = post.metadata;
 
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"];
+    const colors = ["#8884d8", "#83a6ed", "#8dd1e1", "#82ca9d", "#a4de6c", "#d0ed57", "#edca57", "#edb157", "#ed8e57", "#ed6d57"];
+
     meta.created = new Date(meta.created);
     const createdFormatted = `${monthNames[meta.created.getMonth()]} ${(meta.created.getDate() + "").padStart(2, "0")} ${meta.created.getFullYear()}`;
 </script>
 
 <div>
     <div class="post-container">
-        <a href={`posts/${post.route}`}>
-            {meta.title}
-        </a>
-        <span>{createdFormatted}</span>
+        <div class="top">
+            <a href={`posts/${post.route}`}>
+                {meta.title}
+            </a>
+            <span>{createdFormatted}</span>
+        </div>
+        <div class="tag-container">
+            {#each (meta.tags ?? []).sort() as tag}
+                <div class="tag">{tag}</div>
+            {/each}
+        </div>
     </div>
 </div>
 
 <style lang="scss">
+    * {
+        font-family: 'JetBrains Mono', monospace;
+    }
+
     a {
         color: white;
         text-decoration: none;
-        font-family: 'JetBrains Mono', monospace;
         font-weight: 600;
 
         &:hover {
@@ -33,14 +45,37 @@
 
     .post-container {
         display: flex;
-        justify-content: space-between;
-        /* background-color: #282C32; */
-        padding: 0.6rem;
-        /* border-radius: 4px; */
+        flex-direction: column;
+        gap: 0.6rem;
         border-bottom: 1px solid #282C32;
+        padding: 0.6rem;
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
 
         span:nth-child(2) {
-            opacity: 0.6;
+            flex-shrink: 0;
         }
+    }
+    .tag-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
+    .tag {
+        background-color: #282C32bb;
+        padding: 0.3rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        min-width: 80px;
     }
 </style>
