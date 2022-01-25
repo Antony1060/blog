@@ -34,7 +34,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         padding: 2rem;
     }
 </style>
