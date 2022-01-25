@@ -12,19 +12,17 @@
     const createdFormatted = `${monthNames[meta.created.getMonth()]} ${(meta.created.getDate() + "").padStart(2, "0")} ${meta.created.getFullYear()}`;
 </script>
 
-<div>
-    <div class="post-container">
-        <div class="top">
-            <a href={`posts/${post.route}`}>
-                {meta.title}
-            </a>
-            <span>{createdFormatted}</span>
-        </div>
-        <div class="tag-container">
-            {#each (meta.tags ?? []).sort() as tag}
-                <div class="tag">{tag}</div>
-            {/each}
-        </div>
+<div class="post-container">
+    <div class="top">
+        <a href={`posts/${post.route}`}>
+            {meta.title}
+        </a>
+        <span>{createdFormatted}</span>
+    </div>
+    <div class="tag-container">
+        {#each (meta.tags ?? []).sort() as tag}
+            <div class="tag">{tag}</div>
+        {/each}
     </div>
 </div>
 

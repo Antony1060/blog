@@ -11,7 +11,6 @@
 
 <script>
 	export let title;
-	console.log("asd")
 </script>
 
 <h1>{title}</h1>

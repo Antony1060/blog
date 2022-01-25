@@ -30,7 +30,7 @@ import { onMount } from "svelte";
     </style>
 </svelte:head>
 
-<div>
+<div class="content-container">
     <h1>{post.title}</h1>
     <h4>{post.author}</h4>
     <h4>{post.created}</h4>
@@ -50,5 +50,13 @@ import { onMount } from "svelte";
         padding: 0 0 0.4rem 0.6rem;
         margin-bottom: 0.4rem;
         border-bottom: 1px solid #16a21c66;
+    }
+
+    .content-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 2rem;
     }
 </style>
