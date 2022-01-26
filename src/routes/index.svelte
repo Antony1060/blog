@@ -75,7 +75,7 @@
         display: flex;
         gap: 1rem;
         justify-content: space-between;
-        align-items: center;
+        align-items: stretch;
         background-color: #282C3266;
         border-radius: 4px;
 
@@ -92,6 +92,10 @@
     .sorting-dropdown {
         display: flex;
         flex-direction: column;
+
+        span {
+            font-size: 0.9rem;
+        }
 
         span:hover {
             background-color: #16191f;

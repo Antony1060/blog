@@ -34,7 +34,6 @@
 
 <style lang="scss">
     .dropdown-container {
-        height: 100%;
         background-color: #272b33;
         cursor: pointer;
         width: 160px;
