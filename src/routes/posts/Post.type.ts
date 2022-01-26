@@ -2,7 +2,7 @@ export type Post = {
     title: string,
     author: string,
     tags?: string[],
-    lang?: string[]
+    lang?: string[],
     created: Date,
     modified: Date,
     hidden: boolean

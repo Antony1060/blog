@@ -3,7 +3,7 @@ import { dev } from "$app/env";
 
 import type { RequestHandler } from "@sveltejs/kit";
 
-const i18nLang = ["hr"] as const;
+export const i18nLang = ["hr"] as const;
 
 export const get: RequestHandler = async () => {
     const posts = import.meta.glob("./en/*.{md,svx}");

@@ -1,5 +1,6 @@
 <script lang=ts>
     import { onMount } from "svelte";
+    import { page } from "$app/stores";
 
     import "../../../static/prism-material-mine.css"
     import type { Post } from "../../routes/posts/Post.type";
@@ -11,8 +12,10 @@
     const modifiedFormatted = format(new Date(post.modified));
 
     let mdContainer: HTMLDivElement;
+    
+    let langPaths: { lang: string, path: string }[] = (post.lang ?? []).map(it => ({ lang: it, path: `/posts/${it}/${$page.url.pathname.split("/").filter(it => it).at(-1)}` }));
 
-    onMount(() => {
+    const modifiyCodeBlock = () => {
         const codeBlocks = Array.from(mdContainer.querySelectorAll('pre[class*="language-"]'))
                                 .filter(it => it.className.startsWith("language-"));
 
@@ -22,7 +25,11 @@
             span.classList.add("code-block-name");
             block.prepend(span);
         }
-    })
+    }
+
+    onMount(() => {
+        modifiyCodeBlock();
+    });
 </script>
 
 <svelte:head>
@@ -44,7 +51,12 @@
                     <span class="dimmed">Modified {modifiedFormatted}</span>
                 {/if}
             </div>
-            {post.lang.join(",")}
+            {#each langPaths as { path, lang }}
+                <a href={path} class="lang-button">
+                    <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
+                    {lang}
+                </a>
+            {/each}
         {:else}
             <span class="title">{post.title}</span>
             <div class="header-part">
@@ -100,5 +112,27 @@
         justify-content: center;
         align-items: flex-start;
         flex-shrink: 0;
+    }
+    
+    .lang-button {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        padding: 1rem;
+        border-radius: 4px;
+        background-color: #272b33;
+        min-width: 6rem;
+
+        &:hover {
+            background-color: #16191f;
+        }
+
+        img {
+            height: 0.8rem;
+        }
     }
 </style>
