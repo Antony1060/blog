@@ -6,7 +6,6 @@
     const meta = post.metadata;
 
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"];
-    const colors = ["#8884d8", "#83a6ed", "#8dd1e1", "#82ca9d", "#a4de6c", "#d0ed57", "#edca57", "#edb157", "#ed8e57", "#ed6d57"];
 
     meta.created = new Date(meta.created);
     const createdFormatted = `${monthNames[meta.created.getMonth()]} ${(meta.created.getDate() + "").padStart(2, "0")} ${meta.created.getFullYear()}`;

@@ -3,6 +3,7 @@ title: Test post before but it has a really long fucking name, like who actually
 author: Antony
 created: 2022-01-20
 modified: 2022-01-22
+tags: [test, long]
 hidden: true
 ---
 

@@ -22,12 +22,13 @@
     import PostCard from "../lib/components/PostCard.svelte";
 
     export let posts: PostWithMeta[];
+    const tags = posts.reduce((acc, curr) => [...acc, ...(curr.metadata.tags ?? [])], []).sort();
 
     let sorting: "newest" | "oldest" = "newest";
     let tagFilter: string[] = [];
 
-    const updatePosts = (newMode: "newest" | "oldest") => {
-        sorting = newMode;
+    const updateSorting = (newSorting: "newest" | "oldest") => {
+        sorting = newSorting;
         posts = posts.sort((a, b) => new Date((sorting === "newest" ? b : a).metadata.created).getTime() - new Date((sorting === "newest" ? a : b).metadata.created).getTime())
     }
 </script>
@@ -38,13 +39,13 @@
         <div class="mod-container">
             <Dropdown title={sorting} preTitle="Order by:" closeOnClick={true}>
                 <div class="sorting-dropdown">
-                    <span on:click={() => updatePosts("newest")}>newest first</span>
-                    <span on:click={() => updatePosts("oldest")}>oldest first</span>
+                    <span on:click={() => updateSorting("newest")}>newest first</span>
+                    <span on:click={() => updateSorting("oldest")}>oldest first</span>
                 </div>
             </Dropdown>
             <Dropdown title={`${tagFilter.length} tags`} preTitle="Filter:" roundedBorders={true}>
                 <div class="tags-dropdown">
-                    {#each posts.reduce((acc, curr) => [...acc, ...(curr.metadata.tags ?? [])], []).sort() as tag}
+                    {#each tags as tag}
                         <label>
                             <input type="checkbox" bind:group={tagFilter} name="tags" value={tag} />
                             {tag}
@@ -55,7 +56,9 @@
         </div>
     </div>
     {#each posts as post (post.route)}
-        <PostCard post={post} />
+        {#if !tagFilter.length || post.metadata.tags.find(tag => tagFilter.includes(tag))}
+            <PostCard post={post} />
+        {/if}
     {/each}
 </div>
 
