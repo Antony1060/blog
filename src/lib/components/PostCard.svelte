@@ -1,14 +1,12 @@
 <script lang="ts">
     import type { PostWithMeta } from "../../routes/posts/Post.type";
+    import { format } from "../util/date";
 
     export let post: PostWithMeta;
 
     const meta = post.metadata;
 
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"];
-
-    meta.created = new Date(meta.created);
-    const createdFormatted = `${monthNames[meta.created.getMonth()]} ${(meta.created.getDate() + "").padStart(2, "0")} ${meta.created.getFullYear()}`;
+    const createdFormatted = format(new Date(meta.created));
 </script>
 
 <div class="post-container">

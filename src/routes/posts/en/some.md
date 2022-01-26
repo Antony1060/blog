@@ -4,7 +4,8 @@ author: Antony
 created: 2022-01-22
 modified: 2022-01-22
 tags: [rant, networking]
-hidden: false
+lang: ["hr"]
+hidden: false,
 ---
 
 <script>

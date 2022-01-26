@@ -1,10 +1,14 @@
 <script lang=ts>
-import { onMount } from "svelte";
+    import { onMount } from "svelte";
 
     import "../../../static/prism-material-mine.css"
     import type { Post } from "../../routes/posts/Post.type";
+    import { format } from "../util/date";
 
     export let post: Post;
+
+    const createdFormatted = format(new Date(post.created));
+    const modifiedFormatted = format(new Date(post.modified));
 
     let mdContainer: HTMLDivElement;
 
@@ -31,16 +35,29 @@ import { onMount } from "svelte";
 </svelte:head>
 
 <div class="content-container">
-    <h1>{post.title}</h1>
-    <h4>{post.author}</h4>
-    <h4>{post.created}</h4>
-    <h4>{post.modified}</h4>
-    <hr>
+    <div class="header-container">
+        {#if post.lang}
+            <div class="header-part">
+                <span class="title">{post.title}</span>
+                <span class="dimmed">Created {createdFormatted}</span>
+                {#if createdFormatted !== modifiedFormatted}
+                    <span class="dimmed">Modified {modifiedFormatted}</span>
+                {/if}
+            </div>
+            {post.lang.join(",")}
+        {:else}
+            <span class="title">{post.title}</span>
+            <div class="header-part">
+                <span class="dimmed">Created {createdFormatted}</span>
+                {#if createdFormatted !== modifiedFormatted}
+                    <span class="dimmed">Modified {modifiedFormatted}</span>
+                {/if}
+            </div>
+        {/if}
+    </div>
     <div bind:this={mdContainer}>
         <slot />
     </div>
-    <hr>
-    <h1>footer</h1>
 </div>
 
 <style lang="scss">
@@ -58,5 +75,30 @@ import { onMount } from "svelte";
         flex-direction: column;
         gap: 1rem;
         padding: 0 2rem;
+    }
+
+    .header-container {
+        padding: 1rem;
+        border-bottom: 1px solid #16191f;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        span.dimmed {
+            opacity: 0.6;
+        }
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+    .header-part {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: flex-start;
+        flex-shrink: 0;
     }
 </style>
