@@ -20,6 +20,7 @@
 <script lang="ts">
     import Dropdown from "../lib/components/Dropdown.svelte";
     import PostCard from "../lib/components/PostCard.svelte";
+    import GoodRead from "../lib/components/GoodRead.svelte";
 
     export let posts: PostWithMeta[];
     const tags = posts.reduce((acc, curr) => [...acc, ...(curr.metadata.tags ?? [])], []).sort();
@@ -33,42 +34,75 @@
     }
 </script>
 
-<div class="posts-container">
-    <div class="header-container">
-        <span>total {posts.length}</span>
-        <div class="mod-container">
-            <Dropdown title={sorting} preTitle="Order by:" closeOnClick={true}>
-                <div class="sorting-dropdown">
-                    <span on:click={() => updateSorting("newest")}>newest first</span>
-                    <span on:click={() => updateSorting("oldest")}>oldest first</span>
-                </div>
-            </Dropdown>
-            <Dropdown title={`${tagFilter.length} tags`} preTitle="Filter:" roundedBorders={true}>
-                <div class="tags-dropdown">
-                    {#each tags as tag}
-                        <label>
-                            <input type="checkbox" bind:group={tagFilter} name="tags" value={tag} />
-                            {tag}
-                        </label>
-                    {/each}
-                </div>
-            </Dropdown>
+<div class="content-container">
+    <div class="flex-helper"></div> <!-- filler for flex -->
+    <div class="posts-container">
+        <div class="header-container">
+            <span>total {posts.length}</span>
+            <div class="mod-container">
+                <Dropdown title={sorting} preTitle="Order by:" closeOnClick={true}>
+                    <div class="sorting-dropdown">
+                        <span on:click={() => updateSorting("newest")}>newest first</span>
+                        <span on:click={() => updateSorting("oldest")}>oldest first</span>
+                    </div>
+                </Dropdown>
+                <Dropdown title={`${tagFilter.length} tags`} preTitle="Filter:" roundedBorders={true}>
+                    <div class="tags-dropdown">
+                        {#each tags as tag}
+                            <label>
+                                <input type="checkbox" bind:group={tagFilter} name="tags" value={tag} />
+                                {tag}
+                            </label>
+                        {/each}
+                    </div>
+                </Dropdown>
+            </div>
         </div>
+        {#each posts as post (post.route)}
+            {#if !tagFilter.length || post.metadata.tags.find(tag => tagFilter.includes(tag))}
+                <PostCard post={post} />
+            {/if}
+        {/each}
     </div>
-    {#each posts as post (post.route)}
-        {#if !tagFilter.length || post.metadata.tags.find(tag => tagFilter.includes(tag))}
-            <PostCard post={post} />
-        {/if}
-    {/each}
+    <div class="flex-helper">
+        <GoodRead />
+    </div>
 </div>
 
 <style lang="scss">
+
+    .flex-helper {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    .content-container {
+        display: grid;
+        grid-template-columns: 1fr 1000px 1fr;
+        width: 100%;
+
+        @media (max-width: 1800px) {
+            // luc big brain strats
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            width: 1000px;
+            max-width: 100vw;
+            margin: 0 auto;
+
+            .flex-helper:first-child {
+                display: none;
+            }
+        }
+    }
+
     .posts-container {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        padding: 0 2rem;
+        width: 1000px;
+        max-width: 100vw;
+        padding: 0 4rem;
     }
 
     .header-container {

@@ -20,8 +20,8 @@
 <div class="page-container">
     <div class="content-container">
         <Navbar />
-        <slot />
     </div>
+    <slot />
 </div>
 
 <style lang="scss">
