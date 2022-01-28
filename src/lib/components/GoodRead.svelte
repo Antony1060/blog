@@ -33,6 +33,7 @@
         flex-direction: column;
         width: 360px;
         border-radius: 2px;
+        margin: 0 2rem;
         
         span, a {
             font-family: 'JetBrains Mono', monospace;

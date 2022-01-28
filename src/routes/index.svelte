@@ -79,14 +79,14 @@
 
     .content-container {
         display: grid;
-        grid-template-columns: 1fr 1000px 1fr;
+        grid-template-columns: 1fr 900px 1fr;
         width: 100%;
 
         @media (max-width: 1800px) {
             // luc big brain strats
             grid-template-columns: 1fr;
             gap: 2rem;
-            width: 1000px;
+            width: 900px;
             max-width: 100vw;
             margin: 0 auto;
 
@@ -97,13 +97,11 @@
     }
 
     .posts-container {
-        width: 100%;
+        width: calc(100% - 2rem);
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        width: 1000px;
-        max-width: 100vw;
-        padding: 0 4rem;
+        margin: 0 1rem;
     }
 
     .header-container {

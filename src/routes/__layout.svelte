@@ -13,6 +13,7 @@
         body {
             background-color: #0A0D13;
             color: white;
+            overflow-x: hidden;
         }
     </style>
 </svelte:head>
