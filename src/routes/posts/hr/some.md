@@ -1,8 +1,9 @@
 ---
 title: Proba
+description: Blog proba
 author: Antony
-created: 2022-01-22
-modified: 2022-01-22
+created: 2022-01-22 10:30:00
+modified: 2022-01-22 10:30:00
 tags: [rant, networking]
 lang: [en]
 hidden: false

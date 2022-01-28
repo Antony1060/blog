@@ -1,5 +1,6 @@
 export type Post = {
     title: string,
+    description?: string,
     author: string,
     tags?: string[],
     lang?: string[],
@@ -8,4 +9,8 @@ export type Post = {
     hidden: boolean
 }
 
-export type PostWithMeta = { route: string, metadata: Post };
+export type PostWithMeta = {
+    route: string,
+    metadata: Post,
+    languages: string[]
+};

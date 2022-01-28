@@ -41,7 +41,6 @@
         @media (max-width: 1800px) {
             width: auto;
             margin: 0 4rem;
-            /* background-color: rgba($color: hotpink, $alpha: 0.2); */
         }
     }
 
