@@ -27,7 +27,7 @@ export const get: RequestHandler = async ({ url }) => {
                 <description>A blog! 🥵 // yes I know, I'm very creative with descriptions...</description>
                 <link>${url.origin}${url.pathname}</link>
                 <language>en-us</language>
-                ${posts.map(({ route, metadata: post }) => `
+                ${posts.filter(it => !it.metadata.hidden).map(({ route, metadata: post }) => `
                 <item>
                     <title>${post.title}</title>
                     <link>${url.origin}/posts/en/${route}</link>
