@@ -13,7 +13,6 @@
         body {
             background-color: #0A0D13;
             color: white;
-            overflow-x: hidden;
         }
     </style>
 </svelte:head>
@@ -33,6 +32,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        margin-bottom: 2rem;
     }
 
     .content-container {
@@ -41,9 +41,10 @@
         justify-content: flex-start;
         align-items: center;
         width: 1000px;
-        max-width: 100vw;
+        max-width: 100%;
         gap: 2rem;
         padding: 2rem;
         text-align: start;
+        
     }
 </style>

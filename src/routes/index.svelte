@@ -87,7 +87,7 @@
             grid-template-columns: 1fr;
             gap: 2rem;
             width: 900px;
-            max-width: 100vw;
+            max-width: 100%;
             margin: 0 auto;
 
             .flex-helper:first-child {
@@ -115,6 +115,13 @@
         span {
             padding: 0.6rem;
             font-family: 'JetBrains Mono', monospace;
+        }
+
+        @media (max-width: 600px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            gap: 0;
         }
     }
 

@@ -52,6 +52,18 @@
                 border-radius: 0 4px 0 0;
             }
         }
+
+        @media (max-width: 600px) {
+            width: 100%;
+
+            &.round-borders {
+                border-radius: 0;
+
+                &.dropped {
+                    border-radius: 0;
+                }
+            }
+        }
     }
     
     span {
@@ -71,5 +83,9 @@
         background-color: #272b33;
         width: 160px;
         border-radius: 0 0 4px 4px;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
     }
 </style>

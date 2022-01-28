@@ -59,6 +59,12 @@
             opacity: 0.6;
             flex-shrink: 0;
         }
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
     }
     .tag-container {
         display: flex;

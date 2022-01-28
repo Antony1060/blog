@@ -43,6 +43,10 @@
             width: auto;
             margin: 0 4rem;
         }
+
+        @media (max-width: 900px) {
+            margin: 0 1rem;
+        }
     }
 
     .title {

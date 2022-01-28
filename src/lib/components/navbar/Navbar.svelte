@@ -12,8 +12,8 @@
             <Link href="https://antony.red">Home</Link>
             <Link href="https://antony.cloud">Blog</Link>
             <Link href="https://antony.contact">Contact</Link>
-            <Link href="https://antony.domains">Domains</Link>
-            <Link href="https://antony.cash">Donate</Link>
+            <Link href="https://antony.domains" hideOnMobile>Domains</Link>
+            <Link href="https://antony.cash" hideOnMobile>Donate</Link>
         </div>
     </div>
     <div class="divider"></div>
@@ -60,7 +60,7 @@
 
     .links {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         gap: 2rem;
         flex-wrap: wrap;

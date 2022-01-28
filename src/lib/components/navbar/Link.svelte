@@ -1,8 +1,9 @@
 <script lang="ts">
     export let href: string;
+    export let hideOnMobile: boolean = false;
 </script>
 
-<a class="link" href={href}>
+<a class={`link ${hideOnMobile ? "hide-on-mobile" : ""}`} href={href}>
     <span>./</span>
     <span><slot /></span>
 </a>
@@ -23,6 +24,12 @@
 
         &:hover span:nth-child(2) {
             color: white;
+        }
+    }
+
+    .hide-on-mobile {
+        @media (max-width: 700px) {
+            display: none;
         }
     }
 </style>
