@@ -16,6 +16,8 @@
     let langPaths: { lang: string, path: string }[] = (post.lang ?? []).map(it => ({ lang: it, path: `/posts/${it}/${$page.url.pathname.split("/").filter(it => it).at(-1)}` }));
 
     const modifiyCodeBlock = () => {
+        return;
+
         const codeBlocks = Array.from(mdContainer.querySelectorAll('pre[class*="language-"]'))
                                 .filter(it => it.className.startsWith("language-"));
 
@@ -67,7 +69,7 @@
             </div>
         {/if}
     </div>
-    <div bind:this={mdContainer}>
+    <div class="md-container" bind:this={mdContainer}>
         <slot />
     </div>
 </div>
@@ -81,12 +83,29 @@
         border-bottom: 1px solid #16a21c66;
     }
 
-    .content-container {
-        width: 100%;
+    .md-container {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        padding: 0 2rem;
+
+        :global(:is(h1, h2, h3, h4, h5, h6))::before {
+            content: "# ";
+            color: gray;
+        }
+
+        :global(pre) {
+            border: 1px solid white;
+            border-radius: 4px;
+        }
+    }
+
+    .content-container {
+        width: 900px;
+        max-width: calc(100% - 2rem);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0 1rem;
     }
 
     .header-container {

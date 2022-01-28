@@ -11,7 +11,7 @@
 
 <div class="post-container">
     <div class="top">
-        <a href={`posts/en/${post.route}`}>
+        <a href={`/posts/en/${post.route}`}>
             {meta.title}
         </a>
         <span>{createdFormatted}</span>

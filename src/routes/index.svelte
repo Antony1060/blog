@@ -24,7 +24,7 @@
     import GoodRead from "../lib/components/GoodRead.svelte";
 
     export let posts: PostWithMeta[];
-    const tags = posts.reduce((acc, curr) => [...acc, ...(curr.metadata.tags ?? [])], []).sort();
+    const tags = posts.reduce((acc, curr) => [...acc, ...(curr.metadata.tags ?? [])], []).filter((v, i, arr) => arr.indexOf(v) === i).sort();
 
     let sorting: "newest" | "oldest" = "newest";
     let tagFilter: string[] = [];
