@@ -8,6 +8,7 @@
 
     export const load: Load = async ({ fetch }) => {
         const posts: PostWithMeta[] = await fetch("/posts.json").then(res => res.clone().json());
+        await fetch("/rss.xml"); // literally just a fucking filler, because svelte doesn't want to parse rss.xml without it being called in a component, fuck this, wasted 40 minutes on this
 
         posts
             .sort((a, b) => a.metadata.title.localeCompare(b.metadata.title))

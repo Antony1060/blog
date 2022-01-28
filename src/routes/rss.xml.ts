@@ -1,5 +1,6 @@
 import type { RequestHandler } from "@sveltejs/kit";
-import type { PostWithMeta } from "./posts/Post.type";
+import type { PostWithMeta } from "../posts/Post.type";
+import { parse } from "path"
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dev"];
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -7,7 +8,11 @@ const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const padNumber = (number: number) => (number + "").padStart(2, "0")
 
 export const get: RequestHandler = async ({ url }) => {
-    const posts: PostWithMeta[] = await fetch(url.origin + "/posts.json").then(res => res.json());
+    const posts: Omit<PostWithMeta, "languages">[] = await Promise.all(Object.entries(import.meta.glob("../posts/en/*.{md,svx}"))
+            .map(([path, resolver]) => resolver().then(post => ({
+                route: parse(path).name,
+                metadata: post.metadata,
+            }))))
 
     return {
         status: 200,
