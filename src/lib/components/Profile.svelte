@@ -31,7 +31,7 @@
         position: relative;
 
         .display-name:hover + .profile-card {
-            visibility: visible;
+            display: flex;
         }
     }
 
@@ -50,7 +50,7 @@
         border: 1px solid white;
         top: 100%;
         left: 0;
-        display: flex;
+        display: none;
         flex-direction: column;
         gap: 1rem;
         min-width: 300px;
@@ -58,14 +58,13 @@
         flex-wrap: wrap;
         border-radius: 4px;
         z-index: 20;
-        visibility: hidden;
 
         span {
             font-family: 'JetBrains Mono', monospace;
         }
 
         &:hover {
-            visibility: visible;
+            display: flex;
         }
     }
 
