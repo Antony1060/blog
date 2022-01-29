@@ -90,9 +90,25 @@
             gap: 1rem;
         }
 
-        :global(:is(h1, h2, h3, h4, h5, h6))::before {
-            content: "# ";
+        :global(:is(h1, h2, h3))::before {
             color: gray;
+            content: "# ";
+        }
+
+        :global(h1) {
+            font-size: 2em;
+
+            &::before {
+                content: "# ";
+            }
+        }
+
+        :global(h2) {
+            font-size: 1.66em;
+        }
+
+        :global(h3) {
+            font-size: 1.33em;
         }
 
         :global(pre) {
@@ -102,15 +118,79 @@
 
         :global(blockquote) {
             border-left: 3px solid #424752;
-            border-bottom: 1px solid #16191f;
             padding: 0.6rem 1rem;
+            background-color: #16191f;
+        }
+
+        :global(p) {
+            line-height: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         :global(p code) {
-            background-color: hotpink;
-            padding: 0.2rem;
+            background-color: #0d1117;
+            padding: 0.2rem 0.4rem;
             border-radius: 2px;
+            font-size: 1rem;
             border: 1px solid white;
+        }
+
+        :global(:is(ul, ol)) {
+            list-style-position: inside;
+            margin-left: 2rem;
+
+            &::marker {
+                color: gray;
+            }
+        }
+
+        :global(a) {
+            text-decoration: none;
+            color: #5b91fc;
+
+            &:hover {
+                text-decoration: underline;
+                color: #7aa7ff;
+            }
+
+            &::before, &::after {
+                content: "[";
+                color: gray;
+                margin-right: 0.1rem;
+            }
+
+            &::after {
+                content: "]";
+                color: gray;
+                margin-left: 0.1rem;
+            }
+        }
+
+        :global(table) {
+            border: 1px solid white;
+            border-collapse: collapse;
+            width: max-content;
+        }
+
+        :global(th) {
+            border: 1px solid white;
+            border-collapse: collapse;
+            padding: 0.4rem;
+            background-color: #16191f;
+            background-color: rgba($color: white, $alpha: 0.05);
+        }
+
+        :global(td) {
+            border: 1px solid white;
+            border-collapse: collapse;
+            padding: 0.4rem 1rem;
+            text-align: center;
+            background-color: #0d1117;
+        }
+
+        :global(img) {
+            max-width: 100%;
         }
     }
 
