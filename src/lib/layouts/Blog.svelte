@@ -1,5 +1,6 @@
 <script lang=ts>
     import { page } from "$app/stores";
+    import { GithubIcon } from "svelte-feather-icons";
 
     import "../../../static/prism-material-mine.css"
     import type { Post } from "../../routes/posts/Post.type";
@@ -123,7 +124,7 @@
         :global(p) {
             line-height: 1.5rem;
             font-size: 1.1rem;
-            opacity: 0.9;
+            color: rgba($color: white, $alpha: 0.9);
         }
 
         :global(p code) {
@@ -143,7 +144,7 @@
             }
         }
 
-        :global(a) {
+        :global(a):not(.md-style-reset) {
             text-decoration: none;
             color: #5b91fc;
 

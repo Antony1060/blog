@@ -17,7 +17,7 @@ hidden: false
 
 ## Naslov 2
 
-<Profile name=Antony />
+<Profile name="antony" />
 
 ### Naslov 3
 

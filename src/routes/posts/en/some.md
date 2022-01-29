@@ -17,7 +17,7 @@ hidden: false
 
 ## Heading 2
 
-<Profile name=Antony />
+<Profile name=antony />
 
 ### Heading 3
 
