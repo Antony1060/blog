@@ -20,7 +20,7 @@
 
 <svelte:body on:click={handleBodyClick} />
 
-<div class={`dropdown-container ${dropped ? 'dropped' : ''} ${roundedBorders ? 'round-borders' : ''}`} on:click={handleClick} bind:this={div}>
+<div class={`js-disabled-hidden dropdown-container ${dropped ? 'dropped' : ''} ${roundedBorders ? 'round-borders' : ''}`} on:click={handleClick} bind:this={div}>
     {#if preTitle}
         <span class="pre-title" on:click={!closeOnClick ? handleClick : undefined}>{preTitle}</span>
     {/if}

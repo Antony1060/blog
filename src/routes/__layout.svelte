@@ -15,6 +15,14 @@
             color: white;
         }
     </style>
+
+    <noscript>
+        <style>
+            .js-disabled-hidden {
+                display: none !important;
+            }
+        </style>
+    </noscript>
 </svelte:head>
 
 <div class="page-container">
