@@ -38,7 +38,7 @@
         align-items: center;
         flex-wrap: wrap;
         padding: 0 1rem;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .home-link {
@@ -62,7 +62,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: 2rem;
         flex-wrap: wrap;
     }
 
