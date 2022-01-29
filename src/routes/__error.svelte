@@ -3,7 +3,7 @@
 	export function load({ error, status }) {
 		return {
 			props: {
-				title: `${status}: ${error.message}`
+				title: status !== 500 ? `${status}: ${error.message}` : ""
 			}
 		};
 	}
