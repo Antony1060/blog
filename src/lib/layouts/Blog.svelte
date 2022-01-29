@@ -28,14 +28,14 @@
     <!-- OG, Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://antony.cloud/{$page}">
-    <meta property="og:title" content="Antony | Blog - {post.description}">
+    <meta property="og:title" content="Antony | Blog - {post.title}">
     <meta property="og:description" content={post.description}>
     <meta property="og:image">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://antony.cloud/{$page}">
-    <meta property="twitter:title" content="Antony | Blog - {post.description}">
+    <meta property="twitter:title" content="Antony | Blog - {post.title}">
     <meta property="twitter:description" content={post.description}>
     <meta property="twitter:image">
 </svelte:head>
