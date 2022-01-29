@@ -49,11 +49,3 @@ So, shit:
 DEBUG=true
 PORT=8080
 ```
-
-Authored by Antony.
-
----
-
-\- Antony
-[Contact](https://antony.contact)
-

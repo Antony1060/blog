@@ -11,27 +11,7 @@
     const createdFormatted = format(new Date(post.created));
     const modifiedFormatted = format(new Date(post.modified));
 
-    let mdContainer: HTMLDivElement;
-    
     let langPaths: { lang: string, path: string }[] = (post.lang ?? []).map(it => ({ lang: it, path: `/posts/${it}/${$page.url.pathname.split("/").filter(it => it).at(-1)}` }));
-
-    const modifiyCodeBlock = () => {
-        return;
-
-        const codeBlocks = Array.from(mdContainer.querySelectorAll('pre[class*="language-"]'))
-                                .filter(it => it.className.startsWith("language-"));
-
-        for(const block of codeBlocks) {
-            const span = document.createElement("span");
-            span.innerText = block.className.slice("language-".length);
-            span.classList.add("code-block-name");
-            block.prepend(span);
-        }
-    }
-
-    onMount(() => {
-        modifiyCodeBlock();
-    });
 </script>
 
 <svelte:head>
@@ -45,32 +25,29 @@
 
 <div class="content-container">
     <div class="header-container">
-        {#if post.lang}
-            <div class="header-part">
-                <span class="title">{post.title}</span>
-                <span class="dimmed">Created {createdFormatted}</span>
-                {#if createdFormatted !== modifiedFormatted}
-                    <span class="dimmed">Modified {modifiedFormatted}</span>
-                {/if}
-            </div>
-            {#each langPaths as { path, lang }}
-                <a href={path} class="lang-button">
-                    <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
-                    {lang}
-                </a>
-            {/each}
-        {:else}
+        <div class="header-part">
             <span class="title">{post.title}</span>
-            <div class="header-part">
-                <span class="dimmed">Created {createdFormatted}</span>
-                {#if createdFormatted !== modifiedFormatted}
-                    <span class="dimmed">Modified {modifiedFormatted}</span>
-                {/if}
-            </div>
-        {/if}
+            <span class="dimmed">Created {createdFormatted}</span>
+            {#if createdFormatted !== modifiedFormatted}
+                <span class="dimmed">Modified {modifiedFormatted}</span>
+            {/if}
+        </div>
+        {#each langPaths as { path, lang }}
+            <a href={path} class="lang-button">
+                <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
+                {lang}
+            </a>
+        {/each}
     </div>
-    <div class="md-container" bind:this={mdContainer}>
+    <div class="md-container">
         <slot />
+        <section>
+            <hr>
+            <p>
+                - Antony
+                <a href="https://antony.contact">Contact</a>
+            </p>
+        </section>
     </div>
 </div>
 
@@ -84,6 +61,10 @@
     }
 
     .md-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
         :global(section) {
             display: flex;
             flex-direction: column;
@@ -226,6 +207,7 @@
         justify-content: center;
         align-items: flex-start;
         flex-shrink: 0;
+        max-width: 100%;
     }
     
     .lang-button {
