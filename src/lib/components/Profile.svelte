@@ -1,14 +1,28 @@
 <script lang="ts">
     import { linkNameToIcon, Profiles } from "$lib/Profiles";
+    import { onMount } from "svelte";
 
     export let name: keyof typeof Profiles;
 
     const profile = Profiles[name];
+
+    let profileCard: HTMLDivElement;
+
+    const adjustCardPosition = () => {
+        const overflow = (profileCard.parentElement.getBoundingClientRect().x + 300) - window.innerWidth;
+        profileCard.style["left"] = Math.min(0, -(overflow + 20)) + "px";
+    }
+
+    onMount(() => {
+        adjustCardPosition()
+    })
 </script>
+
+<svelte:window on:resize={adjustCardPosition} />
 
 <span class="profile-container">
     <span class="display-name">{profile.display}</span>
-    <div class="profile-card">
+    <div class="profile-card" bind:this={profileCard}>
         <div class="profile-part">
             <img src={profile.pfp} alt={profile.alias} class="pfp">
             <div class="profile-id">
@@ -41,6 +55,7 @@
         font-size: 1.1rem;
         font-weight: 600;
         cursor: pointer;
+        white-space: nowrap;
     }
 
     .profile-card {
@@ -53,8 +68,7 @@
         display: none;
         flex-direction: column;
         gap: 1rem;
-        min-width: 300px;
-        max-width: 400px;
+        width: 300px;
         flex-wrap: wrap;
         border-radius: 4px;
         z-index: 20;
