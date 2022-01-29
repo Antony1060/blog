@@ -10,7 +10,7 @@
         </div>
         <div class="links">
             <Link href="https://antony.red">Home</Link>
-            <Link href="https://antony.cloud">Blog</Link>
+            <Link href="https://antony.cloud" hideOnMobileMore>Blog</Link>
             <Link href="https://antony.contact">Contact</Link>
             <Link href="https://antony.domains" hideOnMobile>Domains</Link>
             <Link href="https://antony.cash" hideOnMobile>Donate</Link>
@@ -62,7 +62,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
         flex-wrap: wrap;
     }
 
