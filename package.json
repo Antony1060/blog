@@ -37,6 +37,7 @@
     "remark-emoji": "^3.0.2",
     "remark-gfm": "^3.0.1",
     "remark-sectionize": "^1.1.1",
-    "svelte-feather-icons": "^3.5.0"
+    "svelte-feather-icons": "^3.5.0",
+    "vite-plugin-compress": "^2.1.0"
   }
 }
