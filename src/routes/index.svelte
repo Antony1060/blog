@@ -1,5 +1,22 @@
 <svelte:head>
+    <!-- General meta -->
     <title>Antony | Blog</title>
+    <meta name="title" content="Antony | Blog">
+    <meta name="description" content="My thoughts">
+
+    <!-- OG, Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://antony.cloud">
+    <meta property="og:title" content="Antony | Blog">
+    <meta property="og:description" content="My thoughts">
+    <meta property="og:image">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://antony.cloud">
+    <meta property="twitter:title" content="Antony | Blog">
+    <meta property="twitter:description" content="My thoughts">
+    <meta property="twitter:image">
 </svelte:head>
 
 <script context="module" lang="ts">

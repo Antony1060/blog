@@ -1,5 +1,4 @@
 <script lang=ts>
-    import { onMount } from "svelte";
     import { page } from "$app/stores";
 
     import "../../../static/prism-material-mine.css"
@@ -15,12 +14,30 @@
 </script>
 
 <svelte:head>
-    <title>Antony | Blog - {post.title}</title>
     <style>
         code, code * {
             font-family: 'JetBrains Mono', monospace !important;
         }
     </style>
+
+    <!-- General meta -->
+    <title>Antony | Blog - {post.title}</title>
+    <meta name="title" content="Antony | Blog - {post.title}">
+    <meta name="description" content={post.description}>
+
+    <!-- OG, Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://antony.cloud/{$page}">
+    <meta property="og:title" content="Antony | Blog - {post.description}">
+    <meta property="og:description" content={post.description}>
+    <meta property="og:image">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://antony.cloud/{$page}">
+    <meta property="twitter:title" content="Antony | Blog - {post.description}">
+    <meta property="twitter:description" content={post.description}>
+    <meta property="twitter:image">
 </svelte:head>
 
 <div class="content-container">
