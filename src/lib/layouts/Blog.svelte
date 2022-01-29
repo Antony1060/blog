@@ -84,9 +84,11 @@
     }
 
     .md-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        :global(section) {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
         :global(:is(h1, h2, h3, h4, h5, h6))::before {
             content: "# ";
@@ -96,6 +98,19 @@
         :global(pre) {
             border: 1px solid white;
             border-radius: 4px;
+        }
+
+        :global(blockquote) {
+            border-left: 3px solid #424752;
+            border-bottom: 1px solid #16191f;
+            padding: 0.6rem 1rem;
+        }
+
+        :global(p code) {
+            background-color: hotpink;
+            padding: 0.2rem;
+            border-radius: 2px;
+            border: 1px solid white;
         }
     }
 
