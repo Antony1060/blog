@@ -47,6 +47,10 @@
         @media (max-width: 900px) {
             margin: 0 1rem;
         }
+
+        @media print {
+            display: none;
+        }
     }
 
     .title {
