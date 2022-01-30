@@ -4,7 +4,7 @@
     import "../../../static/prism-material-mine.css"
     import type { Post } from "../../routes/posts/Post.type";
     import { format } from "../util/date";
-    import { ArrowUpIcon } from "svelte-feather-icons";
+    import ArrowUpIcon from "svelte-feather-icons/src/icons/ArrowUpIcon.svelte";
 
     export let post: Post;
 
@@ -14,15 +14,12 @@
     let langPaths: { lang: string, path: string }[] = (post.lang ?? []).map(it => ({ lang: it, path: `/posts/${it}/${$page.url.pathname.split("/").filter(it => it).at(-1)}` }));
 
     let upVisible = false;
+    let lastScroll = 0;
 
     const handleScroll = () => {
-        const y = window.scrollY;
-        if(y < 300) {
-            upVisible = false;
-            return;
-        }
+        upVisible = window.scrollY >= 300 && lastScroll < window.scrollY;
 
-        upVisible = true;
+        lastScroll = window.scrollY;
     }
 </script>
 
