@@ -38,6 +38,7 @@
     "remark-gfm": "^3.0.1",
     "remark-sectionize": "^1.1.1",
     "svelte-feather-icons": "^3.5.0",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-singlefile": "^0.6.3"
   }
 }

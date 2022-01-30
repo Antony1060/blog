@@ -1,9 +1,8 @@
 <script lang="ts">
-    import { InfoIcon } from "svelte-feather-icons";
+    import InfoIcon from "svelte-feather-icons/src/icons/InfoIcon.svelte";
 
     type GoodRead = { url: string, post: string, author: string };
 
-    // TODO: type profiles
     const reads: GoodRead[] = [{
         post: "Software disenchantment",
         url: "https://tonsky.me/blog/disenchantment/",
