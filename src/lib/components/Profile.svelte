@@ -1,5 +1,25 @@
+<script context="module" lang="ts">
+    import { Profiles, Link } from "$lib/Profiles";
+    import GithubIcon from "svelte-feather-icons/src/icons/GithubIcon.svelte"
+    import LinkedinIcon from "svelte-feather-icons/src/icons/LinkedinIcon.svelte"
+    import InstagramIcon from "svelte-feather-icons/src/icons/InstagramIcon.svelte"
+    import TwitterIcon from "svelte-feather-icons/src/icons/TwitterIcon.svelte"
+    import YoutubeIcon from "svelte-feather-icons/src/icons/YoutubeIcon.svelte"
+    import MailIcon from "svelte-feather-icons/src/icons/MailIcon.svelte"
+    import GlobeIcon from "svelte-feather-icons/src/icons/GlobeIcon.svelte"
+    
+    export const linkNameToIcon: Record<Link, typeof GithubIcon> = {
+        "github": GithubIcon,
+        "linkedin": LinkedinIcon,
+        "instagram": InstagramIcon,
+        "twitter": TwitterIcon,
+        "youtube": YoutubeIcon,
+        "email": MailIcon,
+        "website": GlobeIcon
+    }
+</script>
+
 <script lang="ts">
-    import { linkNameToIcon, Profiles } from "$lib/Profiles";
     import { onMount } from "svelte";
 
     export let name: keyof typeof Profiles;

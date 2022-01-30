@@ -1,6 +1,5 @@
 <script lang=ts>
     import { page } from "$app/stores";
-    import { GithubIcon } from "svelte-feather-icons";
 
     import "../../../static/prism-material-mine.css"
     import type { Post } from "../../routes/posts/Post.type";

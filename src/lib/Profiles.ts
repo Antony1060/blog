@@ -1,22 +1,11 @@
-import { GithubIcon, GlobeIcon, InstagramIcon, LinkedinIcon, MailIcon, TwitterIcon, YoutubeIcon } from "svelte-feather-icons"
 
-type Link = "github" | "linkedin" | "instagram" | "twitter" | "youtube" | "email" | "website"
+export type Link = "github" | "linkedin" | "instagram" | "twitter" | "youtube" | "email" | "website"
 
 type ProfileInfo = {
     display: string,
     pfp: string,
     alias?: string,
     links: Partial<Record<Link, string>>
-}
-
-export const linkNameToIcon: Record<Link, typeof GithubIcon> = {
-    "github": GithubIcon,
-    "linkedin": LinkedinIcon,
-    "instagram": InstagramIcon,
-    "twitter": TwitterIcon,
-    "youtube": YoutubeIcon,
-    "email": MailIcon,
-    "website": GlobeIcon
 }
 
 export const Profiles: { [k: string]: ProfileInfo } = {
