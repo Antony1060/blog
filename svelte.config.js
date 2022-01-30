@@ -2,7 +2,8 @@ import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 import { config as mdsvexConfig } from './mdsvex.config.js';
-import compress from "vite-plugin-compress";
+import { defineConfig } from "vite";
+import compress from "vite-plugin-compression";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,12 +16,12 @@ const config = {
 		adapter: adapter(),
 
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte'
-	},
-
-	plugins: [
-		compress.default()
-	]
+		target: '#svelte',
+		vite: defineConfig({
+			plugins: [ compress({ algorithm: "brotliCompress" }) ],
+			build: { minify: "esbuild" }
+		})
+	}
 };
 
 export default config;
