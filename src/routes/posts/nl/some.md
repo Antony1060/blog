@@ -1,11 +1,11 @@
 ---
-title: Proba
-description: Blog proba
-author: Antony
+title: Test post ofz idk tbh
+description: Blog dingus hiero denk kweenie
+author: Antony (Translations by luc)
 created: 2022-01-22 10:30:00
 modified: 2022-01-22 10:30:00
 tags: [rant, networking]
-lang: [nl]
+lang: [en]
 hidden: false
 ---
 
@@ -13,15 +13,15 @@ hidden: false
     import Profile from "$lib/components/Profile.svelte"
 </script>
 
-# Naslov
+# Hoofd dingus
 
-## Naslov 2
+## Hoofd dingus 2
 
 <Profile name="antony" />
 
-### Naslov 3
+### Hoofd dingus 3
 
-<b>Masni tekst</b>
+<b>Tekst omda et kan</b>
 
 ```java
 class Human {
@@ -30,7 +30,7 @@ class Human {
     public Human(String name) {
         this.name = name;
 
-        System.out.println("Hooman created with name " + name);
+        System.out.println("Hooman gemaakt ofz met naampie " + name);
     }
 
     public void getName() {
@@ -47,7 +47,7 @@ git commit -S -m "Introduce @lvksh/logger"
 
 ```javascript
 const hello = (name) => {
-    console.log(`Hello ${name}`);
+    console.log(`GHello ${name}`);
 }
 ```
 
@@ -55,7 +55,7 @@ const hello = (name) => {
 type FancyType<T, K extends keyof T> = { [k in K]: T[k] extends string ? string : never };
 
 const hello = (hello: string) => {
-    console.log(`Hello ${name}`);
+    console.log(`GHello my fwiend, ${name}`);
 }
 ```
 
@@ -74,8 +74,8 @@ fun main() {
 const Hello: FC<{ name: string }> = ({ name, children }) => {
     return (
         <div>
-            Hello {name}
-            {children}
+            GHello {name}
+            Touch the {children}
         </div>
     )
 }
@@ -92,7 +92,7 @@ const Hello: FC<{ name: string }> = ({ name, children }) => {
 export default {
     name: "App",
     data: () => ({
-        items: ["Hi", "Hello"]
+        items: ["Hej", "Ikea"]
     })
 }
 </script>
@@ -110,12 +110,12 @@ import (
 )
 
 func greet(a string) string {
-    return "Hello" + a
+    return "GHello" + a
 }
 
 func main() {
     if true {
-        fmt.Println(greet("Antony"))
+        fmt.Println(greet("Antonieeeeeeeeeeeeeeee"))
     }
 } 
 ```
@@ -143,7 +143,7 @@ print(powArr)
 ```
 
 ```php
-$str = "This is a really shit language, I cba to make this a nice example";
+$str = "Dis gwn een kut taal, Gak gwn niks voor maken klaar";
 
 echo $str;
 ```
@@ -159,13 +159,13 @@ items:
 
 ```json
 {
-    "hi": "hello",
+    "hi": "ghello",
     "num": 4
 }
 ```
 
 ```html
-<span>test</span>
+<span>test dingus</span>
 ```
 
 ```css
