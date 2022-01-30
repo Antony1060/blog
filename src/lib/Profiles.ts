@@ -5,6 +5,7 @@ type ProfileInfo = {
     display: string,
     pfp: string,
     alias?: string,
+    displayAlias?: boolean,
     links: Partial<Record<Link, string>>
 }
 
@@ -13,6 +14,7 @@ export const Profiles: { [k: string]: ProfileInfo } = {
         display: "Antonio F. Š.",
         pfp: "https://media.antony.red/logoTransparent.png",
         alias: "Antony",
+        displayAlias: true,
         links: {
             website: "https://antony.contact",
             github: "https://github.com/Antony1060",

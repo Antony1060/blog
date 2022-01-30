@@ -41,7 +41,7 @@
 <svelte:window on:resize={adjustCardPosition} />
 
 <span class="profile-container">
-    <span class="display-name">{profile.display}</span>
+    <span class="display-name">{profile.displayAlias ? profile.alias : profile.display}</span>
     <div class="profile-card" bind:this={profileCard}>
         <div class="profile-part">
             <img src={profile.pfp} alt={profile.alias} class="pfp">
