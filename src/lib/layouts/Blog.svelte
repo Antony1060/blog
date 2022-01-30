@@ -4,6 +4,7 @@
     import "../../../static/prism-material-mine.css"
     import type { Post } from "../../routes/posts/Post.type";
     import { format } from "../util/date";
+    import { ArrowUpIcon } from "svelte-feather-icons";
 
     export let post: Post;
 
@@ -11,6 +12,18 @@
     const modifiedFormatted = format(new Date(post.modified));
 
     let langPaths: { lang: string, path: string }[] = (post.lang ?? []).map(it => ({ lang: it, path: `/posts/${it}/${$page.url.pathname.split("/").filter(it => it).at(-1)}` }));
+
+    let upVisible = false;
+
+    const handleScroll = () => {
+        const y = window.scrollY;
+        if(y < 300) {
+            upVisible = false;
+            return;
+        }
+
+        upVisible = true;
+    }
 </script>
 
 <svelte:head>
@@ -66,7 +79,12 @@
             </p>
         </section>
     </div>
+    <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
+        <ArrowUpIcon size="1.5x" />
+    </div>
 </div>
+
+<svelte:window on:scroll={handleScroll} />
 
 <style lang="scss">
     :global(.code-block-name) {
@@ -246,6 +264,29 @@
 
         img {
             height: 0.8rem;
+        }
+    }
+
+    .up-icon {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+        background-color: #272b33;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: 200ms linear;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &.up-visible {
+            opacity: 1;
+            pointer-events: all;
+            transition: 200ms linear;
         }
     }
 </style>
