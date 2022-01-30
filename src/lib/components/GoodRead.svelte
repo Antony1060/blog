@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { InfoIcon } from "svelte-feather-icons";
+
     type GoodRead = { url: string, post: string, author: string };
 
     // TODO: type profiles
@@ -15,7 +17,13 @@
 </script>
 
 <div class="content-container">
-    <span class="title">A good read</span>
+    <span class="title">
+        A good read
+        <div class="info">
+            <InfoIcon size="1x" class="info-icon" />
+            <div class="info-tooltip">A collection of blog posts and articles that peaked my interest.</div>
+        </div>
+    </span>
     {#each reads as read (read.url)}
         <div class="read-content">
             <img src={`https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=32&url=${read.url}`} alt="">
@@ -56,6 +64,39 @@
     .title {
         border-bottom: 1px solid #282C32;
         padding: 0.6rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        :global(.info-icon) {
+            color: rgba($color: white, $alpha: 0.6);
+            cursor: pointer;
+        }
+    }
+
+    .info {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &:hover > .info-tooltip {
+            display: block;
+        }
+    }
+
+    .info-tooltip {
+        display: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -80px;
+        background-color: rgba($color: #282C32, $alpha: 0.6);
+        padding: 0.4rem;
+        border-radius: 4px;
+        border: 1px solid gray;
+        width: 200px;
+        text-align: center;
+        font-size: 0.9rem;
     }
 
     .read-content {
