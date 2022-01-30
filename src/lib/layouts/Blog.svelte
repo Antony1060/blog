@@ -166,18 +166,6 @@
                 text-decoration: underline;
                 color: #7aa7ff;
             }
-
-            &::before, &::after {
-                content: "[";
-                color: gray;
-                margin-right: 0.1rem;
-            }
-
-            &::after {
-                content: "]";
-                color: gray;
-                margin-left: 0.1rem;
-            }
         }
 
         :global(table) {
