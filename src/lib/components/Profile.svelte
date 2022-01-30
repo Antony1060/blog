@@ -63,6 +63,7 @@
 <style lang="scss">
     .profile-container {
         position: relative;
+        display: inline-block;
 
         .display-name:hover + .profile-card {
             display: flex;
