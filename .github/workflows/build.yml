@@ -6,7 +6,8 @@ on:
       - "master"
 
 jobs:
-  zip-files:
+  deploy:
+    name: "🚚 Deploy"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
