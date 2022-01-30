@@ -40,14 +40,14 @@
     <meta property="og:url" content="https://antony.cloud{$page.url.pathname}">
     <meta property="og:title" content="Antony | Blog - {post.title}">
     <meta property="og:description" content={post.description}>
-    <meta property="og:image" content="https://cards.antony.cloud/post?post={$page.url.pathname.split("/").at(-1)}&type=png">
+    <meta property="og:image" content="https://cards.antony.cloud/post?title={post.title}&description={post.description}&type=png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://antony.cloud{$page.url.pathname}">
     <meta property="twitter:title" content="Antony | Blog - {post.title}">
     <meta property="twitter:description" content={post.description}>
-    <meta property="twitter:image" content="https://cards.antony.cloud/post?post={$page.url.pathname.split("/").at(-1)}&type=png">
+    <meta property="twitter:image" content="https://cards.antony.cloud/post?title={post.title}&description={post.description}&type=png">
 </svelte:head>
 
 <div class="content-container">
