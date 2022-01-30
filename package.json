@@ -34,6 +34,7 @@
   },
   "type": "module",
   "dependencies": {
+    "rehype-external-links": "^1.0.1",
     "remark-emoji": "^3.0.2",
     "remark-gfm": "^3.0.1",
     "remark-sectionize": "^1.1.1",

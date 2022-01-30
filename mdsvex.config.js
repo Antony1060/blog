@@ -2,6 +2,7 @@ import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import remarkSectionize from "remark-sectionize"
 import remarkEmoji from "remark-emoji"
+import rehypeExternalLinks from "rehype-external-links"
 
 // eww, no typings
 export const config = {
@@ -19,6 +20,7 @@ export const config = {
         remarkEmoji
     ],
     rehypePlugins: [
-        rehypeSlug
+        rehypeSlug,
+        [rehypeExternalLinks, { target: "_blank", rel: "nofollow" }]
     ]
 }

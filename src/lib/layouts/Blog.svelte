@@ -72,7 +72,7 @@
             <hr>
             <p>
                 - Antony
-                <a href="https://antony.contact">Contact</a>
+                <a href="https://antony.contact" target="_blank">Contact</a>
             </p>
         </section>
     </div>
