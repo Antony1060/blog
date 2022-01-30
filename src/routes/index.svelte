@@ -2,21 +2,21 @@
     <!-- General meta -->
     <title>Antony | Blog</title>
     <meta name="title" content="Antony | Blog">
-    <meta name="description" content="My thoughts">
+    <meta name="description" content="The blog">
 
     <!-- OG, Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://antony.cloud">
     <meta property="og:title" content="Antony | Blog">
-    <meta property="og:description" content="My thoughts">
-    <meta property="og:image">
+    <meta property="og:description" content="The blog">
+    <meta property="og:image" content="/banner.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://antony.cloud">
     <meta property="twitter:title" content="Antony | Blog">
-    <meta property="twitter:description" content="My thoughts">
-    <meta property="twitter:image">
+    <meta property="twitter:description" content="The blog">
+    <meta property="twitter:image" content="/banner.png">
 </svelte:head>
 
 <script context="module" lang="ts">
