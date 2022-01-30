@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "dev": "svelte-kit --host 0.0.0.0 dev",
-    "build": "svelte-kit build",
+    "dev": "VITE_COMMIT_REF=$(git show -s --format=%h) svelte-kit --host 0.0.0.0 dev",
+    "build": "VITE_COMMIT_REF=$(git show -s --format=%h) svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
