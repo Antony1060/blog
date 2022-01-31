@@ -6,7 +6,7 @@ created: 2022-01-22 10:30:00
 modified: 2022-01-22 10:30:00
 tags: [rant, networking]
 lang: [hr]
-hidden: false
+hidden: true
 ---
 
 <script>

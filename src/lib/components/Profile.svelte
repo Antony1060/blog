@@ -50,9 +50,9 @@
                 <span><span class="dimmed">A.K.A</span> {profile.alias}</span>
             </div>
         </div>
-        <div class="profile-part" style="justify-content: space-between;">
+        <div class="profile-part" style="justify-content: space-around;">
             {#each Object.keys(profile.links) as name}
-                <a href={profile.links[name]} class="md-style-reset icon">
+                <a href={profile.links[name]} target="_blank" class="md-style-reset icon">
                     <svelte:component this={linkNameToIcon[name]} />
                 </a>
             {/each}
