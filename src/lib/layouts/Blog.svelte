@@ -70,7 +70,7 @@
         <slot />
         <section>
             <hr>
-            <p>
+            <p class="footer-signature">
                 - Antony
                 <a href="https://antony.contact" target="_blank">Contact</a>
             </p>
@@ -90,6 +90,11 @@
         padding: 0 0 0.4rem 0.6rem;
         margin-bottom: 0.4rem;
         border-bottom: 1px solid #16a21c66;
+    }
+
+    .footer-signature {
+        display: flex;
+        justify-content: space-between;
     }
 
     .md-container {
@@ -194,8 +199,11 @@
             background-color: #0d1117;
         }
 
-        :global(img) {
-            max-width: 100%;
+        :global(img):not(.md-style-reset) {
+            max-width: 400px;
+            height: auto;
+            border: 1px solid white;
+            border-radius: 4px;
         }
     }
 

@@ -1,6 +1,6 @@
 ---
 title: The Journey
-description: The making of this blog and my first time using SvelteKit
+description: Introduction and the adventure of making this blog
 author: Antony
 created: 2022-01-31 22:44:46
 modified: 2022-01-31 22:44:46
@@ -31,7 +31,7 @@ Currently I've done a few commission type jobs for a few people, out of which I'
 
 I'm currently still open for comissions, but I'm really starting to love open source development so I'm doing a bit of that too.
 
-Alright, enough about me, let's get into [why](#why), [what](#what), [where](#where), and [how](#how) this blog came into existance.
+Alright, enough about me, let's get into [why](#why), [what](#what) and [where](#where) this blog came into existance.
 
 ## Why?
 So, why did I make this blog?
@@ -55,7 +55,7 @@ I would even go as far as to say it stands a chance to be my second favourite fr
 Currently the tech stack looks like this:
 - Svelte(Kit)
     - the actual web framework
-    - handles SSG, compression and other optimization
+    - handles SSG, compression and other optimizations
 - MDsveX
     - the Svelte version of MDX
     - does Markdown preprocessing <span style="opacity: 0;">; also, has really sometimes poor fu*king typescript support</span>
@@ -65,9 +65,6 @@ Currently the tech stack looks like this:
     - Roboto
 
 Wow, that list is short. At the time of writing this, I genuinely expected this to be longer...Well I hope this shows that making a blog is really not that complicated. (don't use wordpress though, please).
-
-## How?
-
 
 ## Where?
 Ooo, this is exciting! Time to talk about how I deploy this thing. :truck:
@@ -80,14 +77,41 @@ But that doens't mean it's flawless. One of the things I find slightly frustrati
 
 #### Signal :eyes:
 My current solution of choice is Signal. And no, not **that** [Signal](https://signal.org).
-See, a good friend of mine <Profile name="luc" /> took on a personal project of making a........
+See, a good friend of mine <Profile name="luc" /> took on a personal project of making a..\..\..\..
 
-<img src="https://media.antony.red/CjunME.png" alt="Discord DM" style="width: 400px; height: auto;" />
+![Discord DM](https://media.antony.red/CjunME.png)
 
-..., ok whatever, basically it deploys your websate and servies it, here's the [GitHub repo](https://github.com/lvkdotsh/signal-edge/). Anyways so I chose that to host my website.
-And so far, it's been amazing. Deploy times are extremely quick, autodeployment was really simple to set up and the loading speeds are ⚡ blazing fast.
+..., ok whatever, basically it deploys your website and servies it, here's the [GitHub repo](https://github.com/lvkdotsh/signal-edge/). Anyways so I chose that to host my website.
+And so far, it's been amazing. Deploy times are extremely quick, autodeployment was really simple to set up and the loading times are ⚡ blazing fast.
 
 At the time of writing, there's one instance of it deployed on a shared k8s cluster of ours so there's no public interface for it.
 
 ## SVGs :heart:
 
+So, you know [OpenGraph](https://ogp.me/)? That protocol "that enables any web page to become a rich object in a social graph".
+If this doesn't sound familiar, think of it as a spec for those nice looking Discord/Slack/Twitter/Facebook embeds that get generated once you paste a link to some site.
+And if you haven't already noticed, this blog has those, and they change for every blog post. Example for this specific post: 
+
+![og:image](https://cards.antony.cloud/post?title={title}&description={description}&type=png)
+
+As you can see, it has the title and the description in the image itself.
+
+So how did I achieve this?<br/>***SVGs***
+
+I'm still a bit fascinated how you can generate images just using text, no actual computation needed.
+
+If you take a look at the url of that image:
+```
+https://cards.antony.cloud/post?title={title}&description={description}&type=png
+```
+you can see that it goes to a [service that I wrote](https://github.com/Antony1060/svg-gen) and provides it with a title and a description and it dynamically generates the image.
+This is handled by SSG so built html pages will have them already filled in.
+Keep in mind that images are in SVG format by default, and OpenGraph does not support using SVGs as an image.... crap.
+I figured converting an SVG to an image would not be hard, and I was right, it was not hard. But since I originally wrote this as a serverless function on Netlify(which was hell, I'm never doing that again).
+The environment was missing a font I needed so the final PNG images were looking terribly broken, so I ended up just writing a fastify app to serve the images.
+
+**What did we learn from this?** <br/>
+SVGs :heart:, Serverless :poop:
+
+## Final words
+Alright folks, that's it. If you made it this far, I'd just like to thank you for reading this post, hopefully you enjoyed it. Have a nice rest of your day :smile:

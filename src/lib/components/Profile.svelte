@@ -50,7 +50,7 @@
     {#if pc}
         <div class="profile-card" bind:this={profileCard}>
             <div class="profile-part">
-                <img src={profile.pfp} alt={profile.alias} class="pfp">
+                <img src={profile.pfp} alt={profile.alias} class="pfp md-style-reset">
                 <div class="profile-id">
                     <span class="display">{profile.display}</span>
                     <span><span class="dimmed">A.K.A</span> {profile.alias}</span>

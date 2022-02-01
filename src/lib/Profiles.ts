@@ -38,14 +38,14 @@ export const Profiles: { [k: string]: ProfileInfo } = {
         pfp: "https://yt3.ggpht.com/VOR9jHwWFrCIhO9SH5OjCp62ABB1UMs1vaiUHgdYf3IVQHzR2I67BUM2wZ8Y41Dqifz2XZymN80=s88-c-k-c0x00ffffff-no-rj",
         alias: "Lego Maestro",
         links: {
-            youtube: "https://www.youtube.com/c/LegoMaestro",
+            youtube: "https://media.antony.red/lego.png",
             twitter: "https://twitter.com/Lego_Maestro",
             email: "LegoMBusiness@gmail.com"
         }
     },
     "isaac": {
         display: "Isaac Halverson",
-        pfp: "https://media-exp1.licdn.com/dms/image/C5603AQHdprZYGjLL8w/profile-displayphoto-shrink_200_200/0/1637191443907?e=1649289600&v=beta&t=UwK4SJBM082LQyYpBGXVC8TyHIGp__J3cbssEBFYkIg",
+        pfp: "https://media.antony.red/isaac.png",
         alias: "Isaac H",
         displayAlias: true,
         links: {
