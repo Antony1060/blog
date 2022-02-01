@@ -9,14 +9,14 @@
     <meta property="og:url" content="https://antony.cloud">
     <meta property="og:title" content="Antony | Blog">
     <meta property="og:description" content="The blog">
-    <meta property="og:image" content="/banner.png">
+    <meta property="og:image" content="https://antony.cloud/banner.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://antony.cloud">
     <meta property="twitter:title" content="Antony | Blog">
     <meta property="twitter:description" content="The blog">
-    <meta property="twitter:image" content="/banner.png">
+    <meta property="twitter:image" content="https://antony.cloud/banner.png">
 </svelte:head>
 
 <script context="module" lang="ts">
