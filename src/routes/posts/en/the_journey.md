@@ -48,7 +48,7 @@ Well, I wanted to learn Svelte... buuut I also needed a good way of handling SSG
 These were the only two options that I knew could handle SSG well.
 A couple of my colleagues used Astro for building [their](https://luc.computer) [blogs](https://helgesson.dev/p) and I've heard that Astro still doesn't have good IDE support. So me being me, I didn't even give it a chance and went straight into Svelte.
 
-And I have to say, I was not disappointed, Svelte has a few of it's quirks(but so does every other framework) but it's a really nice and intuitive framework.
+And I have to say, I was not disappointed, Svelte has a few of it's quirks (but so does every other framework) but it's a really nice and intuitive framework.
 I would even go as far as to say it stands a chance to be my second favourite framework, right next to React.
 
 #### The tech stack
@@ -60,6 +60,8 @@ Currently the tech stack looks like this:
     - the Svelte version of MDX
     - does Markdown preprocessing <span style="opacity: 0;">; also, has really sometimes poor fu*king typescript support</span>
     - customized with a few [Remark](https://github.com/remarkjs/remark) and [Rehype](https://github.com/rehypejs/rehype) plugins
+- OpenGraph Images
+    - Custom built solution for generating banners on the fly
 - Fonts
     - JetBrains Mono
     - Roboto
@@ -69,10 +71,10 @@ Wow, that list is short. At the time of writing this, I genuinely expected this 
 ## Where?
 Ooo, this is exciting! Time to talk about how I deploy this thing. :truck:
 
-At first, while I was still developing this, I used [Netlify](https://netlify.com). And I originally planned to use this to serve the poroduction site.
+At first, while I was still developing this, I used [Netlify](https://netlify.com). And I originally planned to use this to serve the production site.
 But that's boring, *it just works*, that's not fun.
 
-Seriously though, I have nothing against netlify, it really is a just works platform.
+Seriously though, I have nothing against netlify, it really is a *just works* platform.
 But that doesn't mean it's flawless. One of the things I find slightly frustrating about it is that it has obnoxiously long load times here in Europe (that might just be my bad internet tho :shrug:).
 
 #### Signal :eyes:
@@ -81,7 +83,7 @@ See, a good friend of mine <Profile name="luc" /> took on a personal project of 
 
 ![Discord DM](https://media.antony.red/CjunME.png)
 
-..., ok whatever, basically it deploys your website and servies it, here's the [GitHub repo](https://github.com/lvkdotsh/signal-edge/). Anyways so I chose that to host my website.
+..., ok whatever, basically it deploys your website and serves it, here's the [GitHub repo](https://github.com/lvkdotsh/signal-edge/). Anyways so I chose that to host my website.
 And so far, it's been amazing. Deploy times are extremely quick, autodeployment was really simple to set up and the loading times are ⚡ blazing fast.
 
 At the time of writing, there's one instance of it deployed on a shared k8s cluster of ours so there's no public interface for it.
@@ -107,8 +109,7 @@ https://cards.antony.cloud/post?title={title}&description={description}&type=png
 you can see that it goes to a [service that I wrote](https://github.com/Antony1060/svg-gen) and provides it with a title and a description and it dynamically generates the image.
 This is handled by SSG so built html pages will have them already filled in.
 Keep in mind that images are in SVG format by default, and OpenGraph does not support using SVGs as an image.... crap.
-I figured converting an SVG to a PNG would not be hard, and I was right, it was not hard. But since I originally wrote this as a serverless function on Netlify(which was hell, I'm never doing that again).
-The environment was missing a font I needed so the final PNG images were looking terribly broken, so I ended up just writing a fastify app to serve the images.
+I figured converting an SVG to a PNG would not be hard, and I was right, it was not hard. But since I originally wrote this as a serverless function on Netlify (which was hell, I'm never doing that again), the environment was missing a font I needed so the final PNG images were looking terribly broken. In the end I ended up just writing a fastify app to serve the images.
 
 **What did we learn from this?** <br/>
 SVGs :heart:, Serverless :poop:
