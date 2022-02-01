@@ -74,6 +74,7 @@
         text-align: center;
         opacity: 0.8;
         pointer-events: none;
+        flex-wrap: wrap;
     }
 
     .tag {
