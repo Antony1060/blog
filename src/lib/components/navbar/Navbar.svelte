@@ -5,7 +5,7 @@
 <div class="navbar-container">
     <div class="navbar-content">
         <div class="logo">
-            <img style="width: 2rem;" src="https://antony.cloud/logoTransparent.png" alt="Logo">
+            <img style="width: 2rem;" src="https://media.antony.red/logoTransparent.png" alt="Logo">
             <a class="home-link" href="/">~/blog</a>
         </div>
         <div class="links">
