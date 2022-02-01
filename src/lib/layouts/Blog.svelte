@@ -200,6 +200,7 @@
         }
 
         :global(img):not(.md-style-reset) {
+            width: calc(100vw - 2rem);
             max-width: 400px;
             height: auto;
             border: 1px solid white;

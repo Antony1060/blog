@@ -27,7 +27,7 @@ And so it begins! Alright, I guess I should first start with a question you're a
 
 ## Who?
 I'm a <span>{ selfAge() }</span> year old :sparkles: **aspiring** :sparkles: full stack dev sort of gravitating towards the backend part of fullstack.
-Currently I've done a few commission type jobs for a few people, out of which I'd like to give a shoutout to one of the best people I've ever worked with, <Profile name="lego" /> and <Profile name="isaac" />. These people provided me with soo many opportunities and I definetely wouldn't be where I am today without them.
+Currently I've done a few commission type jobs for a few people, out of which I'd like to give a shoutout to some of the best people I've ever worked with, <Profile name="lego" /> and <Profile name="isaac" />. These people provided me with soo many opportunities and I definetely wouldn't be where I am today without them.
 
 I'm currently still open for comissions, but I'm really starting to love open source development so I'm doing a bit of that too.
 
@@ -46,7 +46,7 @@ I won't get too much into detail about how this was made since it's literally ju
 #### So why Svelte?
 Well, I wanted to learn Svelte... buuut I also needed a good way of handling SSG (Server side generation) and for that I basically had 2 options: [Astro](https://astro.build/) and well... Svelte.
 These were the only two options that I knew could handle SSG well.
-A couple of my colleagues used astro for building [their](https://luc.computer) [blogs](https://helgesson.dev/p) and I've heard that Astro still doesn't have good IDE support.So me being me, I didn't even give it a change and went straight into Svelte.
+A couple of my colleagues used Astro for building [their](https://luc.computer) [blogs](https://helgesson.dev/p) and I've heard that Astro still doesn't have good IDE support. So me being me, I didn't even give it a chance and went straight into Svelte.
 
 And I have to say, I was not disappointed, Svelte has a few of it's quirks(but so does every other framework) but it's a really nice and intuitive framework.
 I would even go as far as to say it stands a chance to be my second favourite framework, right next to React.
@@ -73,7 +73,7 @@ At first, while I was still developing this, I used [Netlify](https://netlify.co
 But that's boring, *it just works*, that's not fun.
 
 Seriously though, I have nothing against netlify, it really is a just works platform.
-But that doens't mean it's flawless. One of the things I find slightly frustrating about it is that it has obnoxiously long load times here in Europe (that might just be my bad internet tho :shrug:).
+But that doesn't mean it's flawless. One of the things I find slightly frustrating about it is that it has obnoxiously long load times here in Europe (that might just be my bad internet tho :shrug:).
 
 #### Signal :eyes:
 My current solution of choice is Signal. And no, not **that** [Signal](https://signal.org).
@@ -107,7 +107,7 @@ https://cards.antony.cloud/post?title={title}&description={description}&type=png
 you can see that it goes to a [service that I wrote](https://github.com/Antony1060/svg-gen) and provides it with a title and a description and it dynamically generates the image.
 This is handled by SSG so built html pages will have them already filled in.
 Keep in mind that images are in SVG format by default, and OpenGraph does not support using SVGs as an image.... crap.
-I figured converting an SVG to an image would not be hard, and I was right, it was not hard. But since I originally wrote this as a serverless function on Netlify(which was hell, I'm never doing that again).
+I figured converting an SVG to a PNG would not be hard, and I was right, it was not hard. But since I originally wrote this as a serverless function on Netlify(which was hell, I'm never doing that again).
 The environment was missing a font I needed so the final PNG images were looking terribly broken, so I ended up just writing a fastify app to serve the images.
 
 **What did we learn from this?** <br/>
