@@ -27,7 +27,7 @@ And so it begins! Alright, I guess I should first start with a question you're a
 
 ## Who?
 I'm a <span>{ selfAge() }</span> year old :sparkles: **aspiring** :sparkles: full stack dev sort of gravitating towards the backend part of fullstack.
-Currently I've done a few commission type jobs for a few people, out of which I'd like to give a shoutout to one of the best people I've ever worked with, <Profile name="lego" /> and <Profile name="isaac" />. These people provided me with soo many opportunities and I definetely wouldn't be where I currently am without them.
+Currently I've done a few commission type jobs for a few people, out of which I'd like to give a shoutout to one of the best people I've ever worked with, <Profile name="lego" /> and <Profile name="isaac" />. These people provided me with soo many opportunities and I definetely wouldn't be where I am today without them.
 
 I'm currently still open for comissions, but I'm really starting to love open source development so I'm doing a bit of that too.
 
@@ -39,7 +39,6 @@ So, why did I make this blog?
 I felt like writing my random thoughts and giving them to the world,
 also I feel like having a blog would help with my reputation as a developer.
 It was also a really good excuse to try doing something with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/), which, so far, has been really amazing.
-
 
 ## What?
 

@@ -20,7 +20,7 @@
 </script>
 
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount, tick } from "svelte";
 
     export let name: keyof typeof Profiles;
 
@@ -33,7 +33,12 @@
         profileCard.style["left"] = Math.min(0, -(overflow + 20)) + "px";
     }
 
-    onMount(() => {
+    let pc = false;
+
+    onMount(async () => {
+        pc = true;
+        await tick();
+
         adjustCardPosition()
     })
 </script>
@@ -42,22 +47,24 @@
 
 <span class="profile-container">
     <span class="display-name">{profile.displayAlias ? profile.alias : profile.display}</span>
-    <div class="profile-card" bind:this={profileCard}>
-        <div class="profile-part">
-            <img src={profile.pfp} alt={profile.alias} class="pfp">
-            <div class="profile-id">
-                <span class="display">{profile.display}</span>
-                <span><span class="dimmed">A.K.A</span> {profile.alias}</span>
+    {#if pc}
+        <div class="profile-card" bind:this={profileCard}>
+            <div class="profile-part">
+                <img src={profile.pfp} alt={profile.alias} class="pfp">
+                <div class="profile-id">
+                    <span class="display">{profile.display}</span>
+                    <span><span class="dimmed">A.K.A</span> {profile.alias}</span>
+                </div>
+            </div>
+            <div class="profile-part" style="justify-content: space-around;">
+                {#each Object.keys(profile.links) as name}
+                    <a href={profile.links[name]} target="_blank" class="md-style-reset icon">
+                        <svelte:component this={linkNameToIcon[name]} />
+                    </a>
+                {/each}
             </div>
         </div>
-        <div class="profile-part" style="justify-content: space-around;">
-            {#each Object.keys(profile.links) as name}
-                <a href={profile.links[name]} target="_blank" class="md-style-reset icon">
-                    <svelte:component this={linkNameToIcon[name]} />
-                </a>
-            {/each}
-        </div>
-    </div>
+    {/if}
 </span>
 
 <style lang="scss">
@@ -84,7 +91,7 @@
         padding: 1rem;
         background-color: #0d1117;
         border: 1px solid white;
-        top: 100%;
+        top: calc(100% - 1px);
         left: 0;
         display: none;
         flex-direction: column;
