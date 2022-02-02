@@ -35,12 +35,12 @@ export const Profiles: { [k: string]: ProfileInfo } = {
     },
     "lego": {
         display: "Grant Imler",
-        pfp: "https://yt3.ggpht.com/VOR9jHwWFrCIhO9SH5OjCp62ABB1UMs1vaiUHgdYf3IVQHzR2I67BUM2wZ8Y41Dqifz2XZymN80=s88-c-k-c0x00ffffff-no-rj",
+        pfp: "https://media.antony.red/lego.png",
         alias: "Lego Maestro",
         links: {
-            youtube: "https://media.antony.red/lego.png",
+            youtube: "https://youtube.com/c/LegoMaestro",
             twitter: "https://twitter.com/Lego_Maestro",
-            email: "LegoMBusiness@gmail.com"
+            email: "mailto:LegoMBusiness@gmail.com"
         }
     },
     "isaac": {
