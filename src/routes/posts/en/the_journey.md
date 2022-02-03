@@ -94,7 +94,7 @@ So, you know [OpenGraph](https://ogp.me/)? That protocol "that enables any web p
 If this doesn't sound familiar, think of it as a spec for those nice looking Discord/Slack/Twitter/Facebook embeds that get generated once you paste a link to some site.
 And if you haven't already noticed, this blog has those, and they change for every blog post. Example for this specific post: 
 
-![og:image](https://cards.antony.cloud/post?title={title}&description={description}&type=png)
+![OpenGraph card](https://cards.antony.cloud/post?title={title}&description={description}&type=png)
 
 As you can see, it has the title and the description in the image itself.
 
