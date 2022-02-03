@@ -6,8 +6,8 @@ import type { RequestHandler } from "@sveltejs/kit";
 export const i18nLang = ["hr"] as const;
 
 export const get: RequestHandler = async () => {
-    const posts = import.meta.glob("./en/*.{md,svx}");
-    const allPosts = import.meta.glob("./**/*.{md,svx}");
+    const posts = import.meta.glob("./en/*.md");
+    const allPosts = import.meta.glob("./**/*.md");
 
     const resolved = await Promise.all(
         Object.entries(posts)

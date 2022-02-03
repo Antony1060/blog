@@ -13,7 +13,7 @@ export const get: RequestHandler = async () => {
         const fileStat = await stat(`${BASE_PATH}/${file}`);
         if(!fileStat.isDirectory()) continue;
         const names = (await readdir(`${BASE_PATH}/${file}`))
-                        .filter(it => /\.(md|svx)$/g.test(it))
+                        .filter(it => /\.md$/g.test(it))
                         .map(it => `${file}/${it}`);
         Object.assign(posts, ...(await Promise.all(names.map(async it => ({ [it]: await readFile(`${BASE_PATH}/${it}`, { encoding: "utf-8" }) })))))
     }

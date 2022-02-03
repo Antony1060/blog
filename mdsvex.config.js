@@ -6,7 +6,7 @@ import rehypeExternalLinks from "rehype-external-links"
 
 // eww, no typings
 export const config = {
-    extensions: [".md", ".svx"],
+    extensions: [".md"],
     smartypants: {
         quotes: false,
         ellipses: true,

@@ -5,6 +5,7 @@
     import type { Post } from "../../routes/posts/Post.type";
     import { format } from "../util/date";
     import ArrowUpIcon from "svelte-feather-icons/src/icons/ArrowUpIcon.svelte";
+    import DownloadIcon from "svelte-feather-icons/src/icons/DownloadIcon.svelte";
 
     export let post: Post;
 
@@ -20,6 +21,16 @@
         upVisible = window.scrollY >= 300 && lastScroll < window.scrollY;
 
         lastScroll = window.scrollY;
+    }
+
+    let fetchinRaw = false;
+
+    const downloadRaw = () => {
+        fetchinRaw = true;
+        (async () => {
+            const raw: string = await fetch("/allRaw.json").then(res => res.json())[$page.url.pathname.slice("/posts/".length) + ".md"] ?? ""
+            console.log(raw);
+        })().finally(() => fetchinRaw = false);
     }
 </script>
 
@@ -75,6 +86,12 @@
                 <a href="https://antony.contact" target="_blank">Contact</a>
             </p>
         </section>
+    </div>
+    <div class="js-disabled-hidden download-button-container">
+        <div class="download-button" on:click={downloadRaw}>
+            <DownloadIcon size="1x" />
+            Download raw
+        </div>
     </div>
     <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
         <ArrowUpIcon size="1.5x" />
