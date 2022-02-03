@@ -6,6 +6,7 @@
     import { format } from "../util/date";
     import ArrowUpIcon from "svelte-feather-icons/src/icons/ArrowUpIcon.svelte";
     import DownloadIcon from "svelte-feather-icons/src/icons/DownloadIcon.svelte";
+    import { onMount, tick } from "svelte";
 
     export let post: Post;
 
@@ -25,7 +26,29 @@
 
     let fetchingRaw = false;
 
-    let editor = $page.url.hash === "#__editor";
+    let editor = false;
+    let editorTextArea: HTMLTextAreaElement;
+    
+    const handleEditorHashChange = async (e?: HashChangeEvent) => {
+        console.log("change")
+        editor = (e ? new URL(e.newURL).hash : $page.url.hash) === "#__editor";
+        if(!editor) return;
+
+        await tick();
+
+        editorTextArea.disabled = true;
+        editorTextArea.value = "Loading...";
+        const resp: Record<string, string> = await fetch("/allRaw.json").then(res => res.json())
+        const postContent = resp[$page.url.pathname.slice("/posts/".length) + ".md"] ?? "";
+        editorTextArea.value = postContent;
+        editorTextArea.disabled = false;
+    }
+
+    const handleEditorChange = async () => {
+        console.log("*")
+        // const compiled = await compile(editorTextArea.value);
+        // console.log(compiled);
+    }
 
     const downloadRaw = () => {
         fetchingRaw = true;
@@ -42,6 +65,10 @@
             link.click();
         })().finally(() => fetchingRaw = false);
     }
+
+    onMount(() => {
+        handleEditorHashChange();
+    });
 </script>
 
 <svelte:head>
@@ -71,10 +98,10 @@
     <meta property="twitter:image" content="https://cards.antony.cloud/post?title={post.title}&description={post.description}&type=png">
 </svelte:head>
 
-<svelte:window on:scroll={handleScroll} on:hashchange={(e) => editor = new URL(e.newURL).hash === "#__editor"} />
+<svelte:window on:scroll={handleScroll} on:hashchange={handleEditorHashChange} />
 
-<div class="content-container">
-    {#if !editor}
+{#if !editor}
+    <div class="content-container">
         <div class="header-container">
             <div class="header-part">
                 <span class="title">{post.title}</span>
@@ -109,12 +136,15 @@
         <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
             <ArrowUpIcon size="1.5x" />
         </div>
-    {:else}
-        <div class="md-container">
+    </div>
+{:else}
+    <div class="content-container" style="flex-direction: row; width: calc(1800px + 2rem); gap: 2rem;">
+        <textarea class="editor-area" on:change={handleEditorChange} bind:this={editorTextArea} />
+        <div class="md-container" style="max-width: 50%; width: 900px;">
             <slot />
         </div>
-    {/if}
-</div>
+    </div>
+{/if}
 
 <style lang="scss">
     @import "./blogStyle.scss";
