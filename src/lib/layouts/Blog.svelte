@@ -25,6 +25,8 @@
 
     let fetchingRaw = false;
 
+    let editor = $page.url.hash === "#__editor";
+
     const downloadRaw = () => {
         fetchingRaw = true;
         (async () => {
@@ -69,44 +71,50 @@
     <meta property="twitter:image" content="https://cards.antony.cloud/post?title={post.title}&description={post.description}&type=png">
 </svelte:head>
 
-<div class="content-container">
-    <div class="header-container">
-        <div class="header-part">
-            <span class="title">{post.title}</span>
-            <span class="dimmed">Created {createdFormatted}</span>
-            {#if createdFormatted !== modifiedFormatted}
-                <span class="dimmed">Modified {modifiedFormatted}</span>
-            {/if}
-        </div>
-        {#each langPaths as { path, lang }}
-            <a href={path} class="lang-button">
-                <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
-                {lang}
-            </a>
-        {/each}
-    </div>
-    <div class="md-container">
-        <slot />
-        <section>
-            <hr>
-            <p class="footer-signature">
-                - Antony
-                <a href="https://antony.contact" target="_blank">Contact</a>
-            </p>
-        </section>
-    </div>
-    <div class="js-disabled-hidden download-button-container">
-        <button class="download-button" on:click={downloadRaw} disabled={fetchingRaw}>
-            <DownloadIcon size="1x" />
-            { fetchingRaw ? "Loading..." : "Download raw" }
-        </button>
-    </div>
-    <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
-        <ArrowUpIcon size="1.5x" />
-    </div>
-</div>
+<svelte:window on:scroll={handleScroll} on:hashchange={(e) => editor = new URL(e.newURL).hash === "#__editor"} />
 
-<svelte:window on:scroll={handleScroll} />
+<div class="content-container">
+    {#if !editor}
+        <div class="header-container">
+            <div class="header-part">
+                <span class="title">{post.title}</span>
+                <span class="dimmed">Created {createdFormatted}</span>
+                {#if createdFormatted !== modifiedFormatted}
+                    <span class="dimmed">Modified {modifiedFormatted}</span>
+                {/if}
+            </div>
+            {#each langPaths as { path, lang }}
+                <a href={path} class="lang-button">
+                    <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
+                    {lang}
+                </a>
+            {/each}
+        </div>
+        <div class="md-container">
+            <slot />
+            <section>
+                <hr>
+                <p class="footer-signature">
+                    - Antony
+                    <a href="https://antony.contact" target="_blank">Contact</a>
+                </p>
+            </section>
+        </div>
+        <div class="js-disabled-hidden download-button-container">
+            <button class="download-button" on:click={downloadRaw} disabled={fetchingRaw}>
+                <DownloadIcon size="1x" />
+                { fetchingRaw ? "Loading..." : "Download raw" }
+            </button>
+        </div>
+        <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
+            <ArrowUpIcon size="1.5x" />
+        </div>
+    {:else}
+        <div class="md-container">
+            <slot />
+        </div>
+    {/if}
+</div>
 
 <style lang="scss">
     @import "./blogStyle.scss";
