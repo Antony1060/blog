@@ -28,8 +28,16 @@
     const downloadRaw = () => {
         fetchinRaw = true;
         (async () => {
-            const raw: string = await fetch("/allRaw.json").then(res => res.json())[$page.url.pathname.slice("/posts/".length) + ".md"] ?? ""
-            console.log(raw);
+            const resp: Record<string, string> = await fetch("/allRaw.json").then(res => res.json())
+            const [ lang, name ] = $page.url.pathname.slice("/posts/".length).split("/");
+            const postContent = resp[`${lang}/${name}.md`] ?? ""
+            
+            const blob = new Blob([postContent], { type: "text/markdown; charset=UTF-8; variant=GFM" });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = `${name}-${lang}.md`;
+            console.log("Downloding", link.download);
+            link.click();
         })().finally(() => fetchinRaw = false);
     }
 </script>
