@@ -23,10 +23,10 @@
         lastScroll = window.scrollY;
     }
 
-    let fetchinRaw = false;
+    let fetchingRaw = false;
 
     const downloadRaw = () => {
-        fetchinRaw = true;
+        fetchingRaw = true;
         (async () => {
             const resp: Record<string, string> = await fetch("/allRaw.json").then(res => res.json())
             const [ lang, name ] = $page.url.pathname.slice("/posts/".length).split("/");
@@ -38,7 +38,7 @@
             link.download = `${name}-${lang}.md`;
             console.log("Downloding", link.download);
             link.click();
-        })().finally(() => fetchinRaw = false);
+        })().finally(() => fetchingRaw = false);
     }
 </script>
 
@@ -96,10 +96,10 @@
         </section>
     </div>
     <div class="js-disabled-hidden download-button-container">
-        <div class="download-button" on:click={downloadRaw}>
+        <button class="download-button" on:click={downloadRaw} disabled={fetchingRaw}>
             <DownloadIcon size="1x" />
-            Download raw
-        </div>
+            { fetchingRaw ? "Loading..." : "Download raw" }
+        </button>
     </div>
     <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
         <ArrowUpIcon size="1.5x" />
