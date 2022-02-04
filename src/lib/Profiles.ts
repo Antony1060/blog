@@ -55,7 +55,7 @@ export const Profiles: { [k: string]: ProfileInfo } = {
     },
     "nikitonsky": {
         display: "Niki Tonsky",
-        pfp: "https://media.antony.red/tonsky.png",
+        pfp: "https://media.antony.red/tonsky.jpg",
         links: {
             website: "https://tonsky.me/",
             github: "https://github.com/tonsky",
