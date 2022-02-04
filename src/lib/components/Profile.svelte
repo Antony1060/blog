@@ -53,7 +53,9 @@
                 <img src={profile.pfp} alt={profile.alias} class="pfp md-style-reset">
                 <div class="profile-id">
                     <span class="display">{profile.display}</span>
-                    <span><span class="dimmed">A.K.A</span> {profile.alias}</span>
+                    {#if profile.alias}
+                        <span><span class="dimmed">A.K.A</span> {profile.alias}</span>
+                    {/if}
                 </div>
             </div>
             <div class="profile-part" style="justify-content: space-around;">

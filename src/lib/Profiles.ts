@@ -52,5 +52,15 @@ export const Profiles: { [k: string]: ProfileInfo } = {
             github: "https://github.com/Hitman4123",
             linkedin: "https://www.linkedin.com/in/isaac-halverson-6b58b3170/"
         }
+    },
+    "nikitonsky": {
+        display: "Niki Tonsky",
+        pfp: "https://media.antony.red/tonsky.png",
+        links: {
+            website: "https://tonsky.me/",
+            github: "https://github.com/tonsky",
+            twitter: "https://twitter.com/nikitonsky"
+        }
+
     }
 }
