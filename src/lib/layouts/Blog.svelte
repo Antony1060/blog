@@ -80,12 +80,14 @@
                 <span class="dimmed">Modified {modifiedFormatted}</span>
             {/if}
         </div>
-        {#each langPaths as { path, lang }}
-            <a href={path} class="lang-button">
-                <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
-                {lang}
-            </a>
-        {/each}
+        <div class="lang-container">
+            {#each langPaths as { path, lang }}
+                <a href={path} class="lang-button">
+                    <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
+                    {lang}
+                </a>
+            {/each}
+        </div>
     </div>
     <div class="md-container">
         <slot />
@@ -120,8 +122,10 @@
         border-bottom: 1px solid #16191f;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         align-items: center;
         gap: 1rem;
+        min-height: 5.3rem;
 
         span.dimmed {
             opacity: 0.6;
@@ -140,6 +144,13 @@
         align-items: flex-start;
         flex-shrink: 0;
         max-width: 100%;
+    }
+    
+    .lang-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        flex-wrap: wrap;
     }
 
     .lang-button {
