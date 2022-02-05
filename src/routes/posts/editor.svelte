@@ -47,6 +47,7 @@
     })
 </script>
 
+<span class="disclaimer"><b>NOTE:</b> This is a very primitive, there is a chance the render here will be displayed differently in the actual post.</span>
 <div class="content-container" style="flex-direction: row; width: calc(1800px + 2rem); gap: 2rem;">
     {#if pageStatus === true}
         <textarea class="editor-area" on:input={handleEditorChange} bind:this={editorTextArea} />
@@ -59,6 +60,14 @@
 <style lang="scss">
     @import "../../lib/layouts/blogStyle.scss";
 
+    .disclaimer {
+        margin-bottom: 2rem;
+        padding: 0 2rem;
+        font-size: 1.3rem;
+        width: 100%;
+        text-align: center;
+        color: #FE5454;
+    }
     .editor-area {
         width: 900px;
         max-width: 50%;
