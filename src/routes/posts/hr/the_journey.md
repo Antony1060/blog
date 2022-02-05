@@ -4,6 +4,9 @@ description: Uvod i avantura iza ovog bloga
 author: Antony
 created: 2022-02-02 20:50:42
 modified: 2022-02-02 20:50:42
+credits:
+    - role: Translating & spell check
+      name: Vice Limov
 tags: [frontend, svelte, markdown, svg]
 lang: [en]
 hidden: true

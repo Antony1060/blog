@@ -97,6 +97,16 @@
                 - Antony
                 <a href="https://antony.contact" target="_blank">Contact</a>
             </p>
+            {#if post.credits}
+                <div class="credits-container">
+                    <span>A special thanks to&#58;</span>
+                    <ul>
+                        {#each post.credits as { name, role } (name)}
+                            <li>{ role }: { name }</li>
+                        {/each}
+                    </ul>
+                </div>
+            {/if}
         </section>
     </div>
     <div class="js-disabled-hidden download-button-container">
@@ -195,6 +205,22 @@
             opacity: 1;
             pointer-events: all;
             transition: 200ms linear;
+        }
+    }
+
+    .credits-container {
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.4rem;
+        border-top: 1px solid #272b33;
+        
+        span {
+            opacity: 0.6;
+        }
+
+        li {
+            opacity: 0.8;
         }
     }
 </style>
