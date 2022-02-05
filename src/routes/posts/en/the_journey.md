@@ -5,7 +5,7 @@ author: Antony
 created: 2022-01-31 22:44:46
 modified: 2022-01-31 22:44:46
 tags: [frontend, svelte, markdown, svg]
-lang: [hr]
+lang: []
 hidden: false
 ---
 
