@@ -6,22 +6,25 @@
 
     import { marked } from "marked";
     import { onMount, tick } from "svelte";
-import { escape_object } from "svelte/internal";
+    import DownloadIcon from "svelte-feather-icons/src/icons/DownloadIcon.svelte";
+    import UploadIcon from "svelte-feather-icons/src/icons/UploadIcon.svelte";
 
     let editorTextArea: HTMLTextAreaElement;
     let editorParsed: HTMLDivElement;
 
-    const removeFrontmatter = (str: string) => {
-        if(!str.startsWith("---")) return str;
-        if(str.split("---").filter(it => it).length < 2) return str;
+    let frontmatter: string;
+
+    const extractFrontmatter = (str: string): { frontmattter: string, content: string } => {
+        if(!str.startsWith("---")) return { frontmattter: "", content: str };
+        if(str.split("---").filter(it => it).length < 2) return { frontmattter: "", content: str };
         
-        str = str.slice("---".length);
-        str = str.slice(str.indexOf("---") + 3);
-        return str.trim();
+        let extracted = str;
+        extracted = extracted.slice("---".length);
+        extracted = extracted.slice(extracted.indexOf("---") + 3);
+        return { frontmattter: str.slice(0, str.length - extracted.length), content: extracted.trim() };
     }
 
     const handleEditorChange = async () => {
-        editorTextArea.value = removeFrontmatter(editorTextArea.value);
         const compiled = marked.parse(editorTextArea.value);
         editorParsed.innerHTML = compiled;
 
@@ -40,6 +43,25 @@ import { escape_object } from "svelte/internal";
     }
 
     let pageStatus: true | string = "Loading..."
+
+
+    const downloadMarkdown = () => {
+        const post = $page.url.searchParams.get("post");
+        const lang = $page.url.searchParams.get("lang");
+
+        const content = editorTextArea.value;
+
+        const blob = new Blob([`${frontmatter}\n\n${content}`], { type: "text/markdown; charset=UTF-8; variant=GFM" });
+        const link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `${post}-${lang}.md`;
+        console.log("Downloding", link.download);
+        link.click();
+    }
+
+    const loadMarkdown = () => {
+
+    }
 
     onMount(async () => {
         if(!$page.url.searchParams.has("post") || !$page.url.searchParams.has("lang")) {
@@ -60,6 +82,11 @@ import { escape_object } from "svelte/internal";
         pageStatus = true;
         await tick();
         editorTextArea.value = content;
+
+        const mdParts = extractFrontmatter(editorTextArea.value);;
+        editorTextArea.value = mdParts.content;
+        frontmatter = mdParts.frontmattter;
+        
         handleEditorChange();
 
         injectHighligher();
@@ -79,6 +106,16 @@ import { escape_object } from "svelte/internal";
 <div class="content-container" style="flex-direction: row; width: calc(1800px + 2rem); gap: 2rem;">
     {#if pageStatus === true}
         <div style="width: 900px; max-width: 50%;">
+            <div class="js-disabled-hidden download-button-container" style="justify-content: flex-start; margin: 1rem;">
+                <button class="download-button" style="width: 220px;" on:click={downloadMarkdown} disabled={false}> <!-- the disabled false is just here to silence the svelte warnings -->
+                    <DownloadIcon size="1x" />
+                    Download Markdown
+                </button>
+                <button class="download-button" style="width: 180px;" on:click={loadMarkdown} disabled={false}> <!-- the disabled false is just here to silence the svelte warnings -->
+                    <UploadIcon size="1x" />
+                    Load Markdown
+                </button>
+            </div>
             <textarea class="editor prism-live language-markdown" spellcheck={false} on:input={handleEditorChange} bind:this={editorTextArea} />
         </div>
         <div class="md-container" style="max-width: 50%; width: 900px;" bind:this={editorParsed}></div>

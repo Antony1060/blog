@@ -27,7 +27,7 @@ textarea.prism-live {
 	outline: none;
 	background: transparent;
 	resize: none;
-	--selection-background: hsl(320, 80%, 25%);
+	--selection-background: #326ece22;
 	--selection-color: hsla(0, 0%, 100%, .8);
 }
 
@@ -42,12 +42,12 @@ textarea.prism-live {
 	 * because otherwise Firefox shows blank text */
 	textarea.prism-live::-moz-selection {
 		background: var(--selection-background);
-		color: var(--selection-color);
+		/* color: var(--selection-color); */
 	}
 
 	textarea.prism-live::selection {
 		background: var(--selection-background);
-		color: var(--selection-color);
+		/* color: var(--selection-color); */
 	}
 
 pre.prism-live {

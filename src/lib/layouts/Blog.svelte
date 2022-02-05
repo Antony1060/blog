@@ -164,31 +164,6 @@
         }
     }
 
-    .download-button-container {
-        display: flex;
-        width: 100%;
-        justify-content: flex-end;
-    }
-
-    .download-button {
-        color: white;
-        padding: 1rem;
-        border-radius: 4px;
-        background-color: #272b33;
-        width: 160px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.4rem;
-        cursor: pointer;
-        border: none;
-        font-size: 1rem;
-
-        &:hover, &[disabled] {
-            background-color: #16191f;
-        }
-    }
-
     .up-icon {
         position: fixed;
         right: 2rem;

@@ -1,11 +1,3 @@
-:global(.code-block-name) {
-    display: block;
-    font-family: 'JetBrains Mono', monospace;
-    padding: 0 0 0.4rem 0.6rem;
-    margin-bottom: 0.4rem;
-    border-bottom: 1px solid #16a21c66;
-}
-
 .md-container {
     display: flex;
     flex-direction: column;
@@ -45,6 +37,8 @@
     :global(pre) {
         border: 1px solid white;
         border-radius: 4px;
+        margin: 0.5em 0;
+        padding: 1.25em 1em;
     }
 
     :global(blockquote) {
@@ -126,3 +120,29 @@
     margin: 0 1rem;
 }
 
+.download-button-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.download-button {
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: #272b33;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+
+    &:hover, &[disabled] {
+        background-color: #16191f;
+    }
+}
