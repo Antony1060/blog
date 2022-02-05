@@ -6,7 +6,6 @@
     import { format } from "../util/date";
     import ArrowUpIcon from "svelte-feather-icons/src/icons/ArrowUpIcon.svelte";
     import DownloadIcon from "svelte-feather-icons/src/icons/DownloadIcon.svelte";
-    import { onMount, tick } from "svelte";
 
     export let post: Post;
 
@@ -26,30 +25,6 @@
 
     let fetchingRaw = false;
 
-    let editor = false;
-    let editorTextArea: HTMLTextAreaElement;
-    
-    const handleEditorHashChange = async (e?: HashChangeEvent) => {
-        console.log("change")
-        editor = (e ? new URL(e.newURL).hash : $page.url.hash) === "#__editor";
-        if(!editor) return;
-
-        await tick();
-
-        editorTextArea.disabled = true;
-        editorTextArea.value = "Loading...";
-        const resp: Record<string, string> = await fetch("/allRaw.json").then(res => res.json())
-        const postContent = resp[$page.url.pathname.slice("/posts/".length) + ".md"] ?? "";
-        editorTextArea.value = postContent;
-        editorTextArea.disabled = false;
-    }
-
-    const handleEditorChange = async () => {
-        console.log("*")
-        // const compiled = await compile(editorTextArea.value);
-        // console.log(compiled);
-    }
-
     const downloadRaw = () => {
         fetchingRaw = true;
         (async () => {
@@ -65,10 +40,6 @@
             link.click();
         })().finally(() => fetchingRaw = false);
     }
-
-    onMount(() => {
-        handleEditorHashChange();
-    });
 </script>
 
 <svelte:head>
@@ -98,54 +69,146 @@
     <meta property="twitter:image" content="https://cards.antony.cloud/post?title={post.title}&description={post.description}&type=png">
 </svelte:head>
 
-<svelte:window on:scroll={handleScroll} on:hashchange={handleEditorHashChange} />
+<svelte:window on:scroll={handleScroll} />
 
-{#if !editor}
-    <div class="content-container">
-        <div class="header-container">
-            <div class="header-part">
-                <span class="title">{post.title}</span>
-                <span class="dimmed">Created {createdFormatted}</span>
-                {#if createdFormatted !== modifiedFormatted}
-                    <span class="dimmed">Modified {modifiedFormatted}</span>
-                {/if}
-            </div>
-            {#each langPaths as { path, lang }}
-                <a href={path} class="lang-button">
-                    <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
-                    {lang}
-                </a>
-            {/each}
+<div class="content-container">
+    <div class="header-container">
+        <div class="header-part">
+            <span class="title">{post.title}</span>
+            <span class="dimmed">Created {createdFormatted}</span>
+            {#if createdFormatted !== modifiedFormatted}
+                <span class="dimmed">Modified {modifiedFormatted}</span>
+            {/if}
         </div>
-        <div class="md-container">
-            <slot />
-            <section>
-                <hr>
-                <p class="footer-signature">
-                    - Antony
-                    <a href="https://antony.contact" target="_blank">Contact</a>
-                </p>
-            </section>
-        </div>
-        <div class="js-disabled-hidden download-button-container">
-            <button class="download-button" on:click={downloadRaw} disabled={fetchingRaw}>
-                <DownloadIcon size="1x" />
-                { fetchingRaw ? "Loading..." : "Download raw" }
-            </button>
-        </div>
-        <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
-            <ArrowUpIcon size="1.5x" />
-        </div>
+        {#each langPaths as { path, lang }}
+            <a href={path} class="lang-button">
+                <img src={`https://flagcdn.com/${lang === "en" ? "gb" : lang}.svg`} alt={`${lang}-flag`}>
+                {lang}
+            </a>
+        {/each}
     </div>
-{:else}
-    <div class="content-container" style="flex-direction: row; width: calc(1800px + 2rem); gap: 2rem;">
-        <textarea class="editor-area" on:change={handleEditorChange} bind:this={editorTextArea} />
-        <div class="md-container" style="max-width: 50%; width: 900px;">
-            <slot />
-        </div>
+    <div class="md-container">
+        <slot />
+        <section>
+            <hr>
+            <p class="footer-signature">
+                - Antony
+                <a href="https://antony.contact" target="_blank">Contact</a>
+            </p>
+        </section>
     </div>
-{/if}
+    <div class="js-disabled-hidden download-button-container">
+        <button class="download-button" on:click={downloadRaw} disabled={fetchingRaw}>
+            <DownloadIcon size="1x" />
+            { fetchingRaw ? "Loading..." : "Download raw" }
+        </button>
+    </div>
+    <div class="up-icon {upVisible ? "up-visible" : ""}" on:click={() => window.scroll({ top: 0, behavior: "smooth" })}>
+        <ArrowUpIcon size="1.5x" />
+    </div>
+</div>
 
 <style lang="scss">
     @import "./blogStyle.scss";
+
+    .footer-signature {
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-container {
+        padding: 1rem;
+        border-bottom: 1px solid #16191f;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        span.dimmed {
+            opacity: 0.6;
+        }
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .header-part {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: flex-start;
+        flex-shrink: 0;
+        max-width: 100%;
+    }
+
+    .lang-button {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        padding: 1rem;
+        border-radius: 4px;
+        background-color: #272b33;
+        min-width: 6rem;
+
+        &:hover {
+            background-color: #16191f;
+        }
+
+        img {
+            height: 0.8rem;
+        }
+    }
+
+    .download-button-container {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .download-button {
+        color: white;
+        padding: 1rem;
+        border-radius: 4px;
+        background-color: #272b33;
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+
+        &:hover, &[disabled] {
+            background-color: #16191f;
+        }
+    }
+
+    .up-icon {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+        background-color: #272b33;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: 200ms linear;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &.up-visible {
+            opacity: 1;
+            pointer-events: all;
+            transition: 200ms linear;
+        }
+    }
 </style>
