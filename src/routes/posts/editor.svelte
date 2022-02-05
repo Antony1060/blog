@@ -59,8 +59,34 @@
         link.click();
     }
 
-    const loadMarkdown = () => {
+    const readFileAsText = async (file: File) =>
+        new Promise<string>(resolve => {
+            const reader = new FileReader();
 
+            reader.addEventListener("load", () => {
+                resolve(reader.result as string);
+            });
+
+            reader.readAsText(file);
+        })
+
+    const loadMarkdown = async (e: Event) => {
+        const target = e.target as HTMLInputElement;
+        const file = target.files[0];
+        if(!file) return;
+
+        const content = await readFileAsText(file);
+
+        const mdParts = extractFrontmatter(content);
+        editorTextArea.value = mdParts.content;
+        frontmatter = mdParts.frontmattter;
+
+        editorTextArea.dispatchEvent(new InputEvent("input", {
+            bubbles: true,
+            cancelable: true
+        }));
+
+        handleEditorChange();
     }
 
     onMount(async () => {
@@ -111,10 +137,13 @@
                     <DownloadIcon size="1x" />
                     Download Markdown
                 </button>
-                <button class="download-button" style="width: 180px;" on:click={loadMarkdown} disabled={false}> <!-- the disabled false is just here to silence the svelte warnings -->
-                    <UploadIcon size="1x" />
-                    Load Markdown
-                </button>
+                <div>
+                    <label for="upload-markdown" style="width: 180px;" class="download-button">
+                        <UploadIcon size="1x" />
+                        Load Markdown
+                    </label>
+                    <input id="upload-markdown" type="file" accept="text/markdown,.md" style="display: none;" on:change={loadMarkdown} />
+                </div>
             </div>
             <textarea class="editor prism-live language-markdown" spellcheck={false} on:input={handleEditorChange} bind:this={editorTextArea} />
         </div>
