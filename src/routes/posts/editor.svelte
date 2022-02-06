@@ -46,8 +46,9 @@
 
 
     const downloadMarkdown = () => {
-        const post = $page.url.searchParams.get("post");
-        const lang = $page.url.searchParams.get("lang");
+        const searchParams = new URLSearchParams(window.location.search);
+        const post = searchParams.get("post");
+        const lang = searchParams.get("lang");
 
         const content = editorTextArea.value;
 
@@ -90,13 +91,14 @@
     }
 
     onMount(async () => {
-        if(!$page.url.searchParams.has("post") || !$page.url.searchParams.has("lang")) {
+        const searchParams = new URLSearchParams(window.location.search);
+        if(!searchParams.has("post") || !searchParams.has("lang")) {
             pageStatus = "Post undefined";
             return;
         }
 
-        const post = $page.url.searchParams.get("post");
-        const lang = $page.url.searchParams.get("lang");
+        const post = searchParams.get("post");
+        const lang = searchParams.get("lang");
 
         const resp: Record<string, string> = await fetch("/allRaw.json").then(res => res.json());
         const content = resp[`${lang}/${post}.md`];
