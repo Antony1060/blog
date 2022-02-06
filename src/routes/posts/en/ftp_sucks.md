@@ -103,9 +103,13 @@ And to finish off all this, I did some very basic and very primitive benchmarks.
 Basically what I did is grabbed a random minecraft world I had on my computer and uploaded it using each of these protocols.
 The point of the benchmarks is only to show the difference between the speeds, since they are not small, I didn't really bother performing an actual benchmark.
 
-| File | FTP | SFTP | RSYNC | SCP | HTTPS |
-| ---- | --- | ---- | ----- | --- | ----- |
+<div class="table-container" style="white-space: nowrap;">
+
+| File | FTP :poop: | SFTP | RSYNC | SCP | HTTPS :crown: |
+| ---- | ---------- | ---- | ----- | --- | ------------- |
 | 15.1MiB, 26 files, 7 sub-folders | 38816.23ms | 21432.61ms | 6162.22ms | 12516.86ms | 5320.15ms |
+
+</div>
 
 As we can see, FTP performed absolutely terrible. ~7x slower than HTTPS. This is actually a lot slower than I expected before I started the test.
 SFTP did performa bit better but it's still a lot slower than the other 3 options.

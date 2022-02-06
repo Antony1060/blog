@@ -80,16 +80,21 @@
         }
     }
 
+    :global(.table-container) {
+        overflow-x: auto;
+    }
+
     :global(table) {
         border: 1px solid white;
         border-collapse: collapse;
         width: max-content;
+        max-width: calc(100% - 2rem);
     }
 
     :global(th) {
         border: 1px solid white;
         border-collapse: collapse;
-        padding: 0.4rem;
+        padding: 0.4rem 1rem;
         background-color: #16191f;
         background-color: rgba($color: white, $alpha: 0.05);
     }
