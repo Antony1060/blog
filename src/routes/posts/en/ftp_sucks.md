@@ -1,6 +1,6 @@
 ---
 title: The File Transfer Protocol...
-description: Ugh, FTP. A rant about the world's most popular file transfer protocol
+description: Ugh, FTP. A rant about one of the world's most popular protocols.
 author: Antony
 created: 2022-02-04 23:17:28
 modified: 2022-02-04 23:17:28
