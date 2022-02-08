@@ -45,6 +45,16 @@
 
 <svelte:window on:resize={adjustCardPosition} />
 
+<svelte:head>
+    <noscript>
+        <style>
+            .display-name {
+                cursor: default !important;
+            }
+        </style>
+    </noscript>
+</svelte:head>
+
 <span class="profile-container">
     <span class="display-name">{profile.displayAlias ? profile.alias : profile.display}</span>
     {#if pc}
