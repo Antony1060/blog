@@ -1,12 +1,12 @@
 <script lang="ts">
     import type { PostWithMeta } from "../../routes/posts/Post.type";
-    import { format } from "../util/date";
+    import { format, changeTimezone } from "../util/date";
 
     export let post: PostWithMeta;
 
     const meta = post.metadata;
 
-    const createdFormatted = format(new Date(meta.created));
+    const createdFormatted = format(changeTimezone(new Date(meta.created), "Europe/Zagreb"));
 </script>
 
 <div class="post-container">

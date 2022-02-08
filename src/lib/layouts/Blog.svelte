@@ -3,14 +3,14 @@
 
     import "../../../static/prism-material-mine.css"
     import type { Post } from "../../routes/posts/Post.type";
-    import { format } from "../util/date";
+    import { changeTimezone, format } from "../util/date";
     import ArrowUpIcon from "svelte-feather-icons/src/icons/ArrowUpIcon.svelte";
     import DownloadIcon from "svelte-feather-icons/src/icons/DownloadIcon.svelte";
 
     export let post: Post;
 
-    const createdFormatted = format(new Date(post.created));
-    const modifiedFormatted = format(new Date(post.modified));
+    const createdFormatted = format(changeTimezone(new Date(post.created), "Europe/Zagreb"));
+    const modifiedFormatted = format(changeTimezone(new Date(post.modified), "Europe/Zagreb"));
 
     let langPaths: { lang: string, path: string }[] = (post.lang ?? []).map(it => ({ lang: it, path: `/posts/${it}/${$page.url.pathname.split("/").filter(it => it).at(-1)}` }));
 
