@@ -65,7 +65,7 @@
         gap: 2rem;
         flex-wrap: wrap;
 
-        @media (max-width: 700px) {
+        @media (max-width: 500px) {
             gap: 1rem;
         }
     }
