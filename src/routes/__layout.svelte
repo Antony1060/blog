@@ -1,6 +1,8 @@
 <script>
     import Navbar from "$lib/components/navbar/Navbar.svelte";
+    import RssIcon from "svelte-feather-icons/src/icons/RssIcon.svelte";
 </script>
+
 <svelte:head>
     <style>
         * {
@@ -26,11 +28,14 @@
 </svelte:head>
 
 <div class="page-container">
-    <div class="content-container">
+    <div class="navbar-container">
         <Navbar />
     </div>
     <slot />
-    <a class="git-version" href="https://github.com/Antony1060/blog" target="_blank">Version {import.meta.env.VITE_COMMIT_REF ?? ""}</a>
+    <div class="bottom-container">
+        <a class="rss" href="/rss.xml" target="_blank"><RssIcon size="1.5x" /> RSS</a>
+        <a class="git-version" href="https://github.com/Antony1060/blog" target="_blank">Version {import.meta.env.VITE_COMMIT_REF ?? ""}</a>
+    </div>
 </div>
 
 <style lang="scss">
@@ -44,7 +49,7 @@
         margin-bottom: 2rem;
     }
 
-    .content-container {
+    .navbar-container {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -57,11 +62,18 @@
         
     }
 
+    .bottom-container {
+        display: flex;
+        margin-top: 2rem;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     .git-version {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.8);
         cursor: pointer;
-        margin-top: 2rem;
         
         &:hover {
             color: white;
@@ -70,6 +82,19 @@
 
         @media print {
             display: none;
+        }
+    }
+
+    .rss {
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        text-decoration: none;
+
+        &:hover {
+            color: white;
+            text-decoration: underline;
         }
     }
 </style>
