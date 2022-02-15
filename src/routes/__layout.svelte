@@ -1,6 +1,8 @@
 <script>
     import Navbar from "$lib/components/navbar/Navbar.svelte";
     import RssIcon from "svelte-feather-icons/src/icons/RssIcon.svelte";
+
+        
 </script>
 
 <svelte:head>
@@ -59,7 +61,6 @@
         gap: 2rem;
         padding: 2rem;
         text-align: start;
-        
     }
 
     .bottom-container {
