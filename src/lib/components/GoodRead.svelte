@@ -3,7 +3,13 @@
 
     type GoodRead = { url: string, post: string, author: string };
 
-    const reads: GoodRead[] = [{
+    const reads: GoodRead[] = [
+    {
+        post: "Why we at $FAMOUS_COMPANY Switched to $HYPED_TECHNOLOGY",
+        url: "https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/",
+        author: "Saagar Jha"
+    },
+    {
         post: "Software disenchantment",
         url: "https://tonsky.me/blog/disenchantment/",
         author: "Niki Tonsky"
@@ -25,7 +31,10 @@
     </span>
     {#each reads as read (read.url)}
         <div class="read-content">
-            <img src={`https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=32&url=${read.url}`} alt="">
+            <!-- kinda don't like this approach, but we'll try fix later -->
+            <object title="" data={`https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=32&url=${read.url}`}>
+                <span class="fallback-img"> => </span>
+            </object>
             <div class="read-title">
                 <a href={read.url} target="_blank">{read.post}</a>
                 <span>{read.author}</span>
@@ -106,8 +115,10 @@
         margin: 0.2rem 0.2rem;
         border-bottom: 1px solid #282C32;
 
-        img {
-            height: 1.4rem;
+        object, .fallback-img {
+            text-align: center;
+            display: inline-block;
+            width: 1.4rem;
             border-radius: 2px;
         }
     }
