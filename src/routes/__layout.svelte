@@ -1,8 +1,22 @@
 <script>
+    import { navigating } from "$app/stores";
+
     import Navbar from "$lib/components/navbar/Navbar.svelte";
+    import NProgress from "nprogress";
     import RssIcon from "svelte-feather-icons/src/icons/RssIcon.svelte";
 
-        
+    import "nprogress/nprogress.css";
+
+    NProgress.configure({
+        showSpinner: false
+    });
+
+    $: {
+        $navigating ?
+            NProgress.start()
+        :
+            NProgress.done()
+    }
 </script>
 
 <svelte:head>
@@ -97,5 +111,13 @@
             color: white;
             text-decoration: underline;
         }
+    }
+
+    :global(#nprogress .bar) {
+        background-color: #e4e4e466;
+    }
+
+    :global(#nprogress .peg) {
+        box-shadow: 0px 0px 10px #e4e4e488, 0px 0px 5px #e4e4e488;
     }
 </style>
