@@ -27,7 +27,7 @@ And so it begins! Alright, I guess I should first start with a question you're a
 
 ## Who?
 I'm a <span>{ selfAge() }</span> year old :sparkles: **aspiring** :sparkles: full stack dev sort of gravitating towards the backend part of fullstack.
-Currently I've done a few commission type jobs for a few people, out of which I'd like to give a shoutout to some of the best people I've ever worked with, <Profile name="lego" /> and <Profile name="isaac" />. These people provided me with soo many opportunities and I definetely wouldn't be where I am today without them.
+Currently I've done a few commission type jobs for a few people, out of which I'd like to give a shoutout to some of the best people I've ever worked with, <Profile name="lego" /> and <Profile name="isaac" />. These people provided me with soo many opportunities and I definitely wouldn't be where I am today without them.
 
 I'm currently still open for comissions, but I'm really starting to love open source development so I'm doing a bit of that too.
 

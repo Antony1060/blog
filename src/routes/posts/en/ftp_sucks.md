@@ -44,7 +44,7 @@ Yes, SFTP does exist. And it is better than FTP... sometimes. SFTP is a lot more
 But additional security, doesn't eliminate the speed issues. I've experienced SFTP to be slower than FTP in the real world, but for some reason, it showed to be a bit faster while I was doing testing for this post.
 
 ## Alternatives
-Ok, do this post doesn't end up me just ranting and being useless, I'll give you a few amazing alternatives to FTP. I won't get into too much detail here, I would just like to mention they exist.
+Ok, so this post doesn't end up me just ranting and being useless, I'll give you a few amazing alternatives to FTP. I won't get into too much detail here, I would just like to mention they exist.
 
 #### RSYNC [Man](https://linux.die.net/man/1/rsync) [Wiki](https://en.wikipedia.org/wiki/Rsync)
 This is probably one of the most versitile utilities for transfering files. While not being a protocol itself, it does work over SSH, and we all love SSH.
