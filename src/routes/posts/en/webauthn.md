@@ -21,14 +21,14 @@ This guide should help you understand how WebAuthn can help us here, how it work
 ## WebAuthn to the rescue
 So, what's WebAuthn? Well, it's a web standard that makes it very east to simplify this process. Instead of having an app on your phone or an E-Mail account, you usually have some sort of a physical device like a [YubiKey](https://www.yubico.com/products/) that you can use for authentication.
 
-So, there's generally two ways authenticating with WebAuthn can go. I will explain both ways and then show how they can be [implemented](#).
+There's generally two ways authenticating with WebAuthn can go. I will explain both ways and then show how they can be [implemented](#).
 
 #### The basics
 
 In both cases, the following applies:
     - there are three parties involved in the process
         - The Relying Party, or RP for short (server)
-        - The Browser (client)
+        - The browser (client)
         - The authenticator (e.g. YubiKey)
     <br />
     <br />
@@ -63,7 +63,9 @@ Here's a simple diagram of how everything works.
 ### Usernameless
 Ok, this is what everyone is excided about, passwordless ***and*** usernameless login. Yes, you can log in without even a username!
 In this case, the authenticator will store a small piece of information called a `userHandle` which will be the user you want your authenticator to log you in as.
-So here, instead of already knowing who we want to log in as, the authenticator tells the RP who it want's to log in as.
+So here, instead of already knowing who we want to log in as, the authenticator tells the RP who it wants to log in as.
+
+This process is usually referred to as [Resident Key](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Resident_Keys.html) authentication. And I will refer to it as that from now on.
 
 The flow is pretty similar to the one stated above, but let's repeat and fill in some gaps.
 
@@ -89,3 +91,13 @@ A thing to note about the `userHandle`:
 
 Here's another diagram, very similar to the one above, but again with a few changes. Also this diagram describes the assertion process only because the attestation process the same as the one above.
 <img src="https://media.antony.red/webauthn_usernameless_dark.png" alt="WebAuthn diagram" style="max-width: 600px" />
+
+## Implementation with Node and React
+Alright, time for the fun part(sometimes), the code!
+
+- **[Second Factor](#as-a-second-factor)**
+- **[Usernameless + Passwordless](#usernameless--passwordless)**
+
+### As a second factor
+
+### Usernameless + Passwordless

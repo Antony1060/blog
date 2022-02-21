@@ -27,7 +27,9 @@ export const get: RequestHandler = async ({ url }) => {
                 <description>A blog! 🥵 // yes I know, I'm very creative with descriptions...</description>
                 <link>https://antony.cloud${url.pathname}</link>
                 <language>en-us</language>
-                ${posts.filter(it => !it.metadata.hidden).map(({ route, metadata: post }) => `
+                ${posts.filter(it => !it.metadata.hidden)
+                        .sort((a, b) => new Date(b.metadata.created).getTime() - new Date(a.metadata.created).getTime())
+                        .map(({ route, metadata: post }) => `
                 <item>
                     <title>${post.title}</title>
                     <link>https://antony.cloud/posts/en/${route}</link>
