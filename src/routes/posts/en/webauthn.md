@@ -94,7 +94,7 @@ Here's another diagram, very similar to the one above, but again with a few chan
 
 Also, another popular way of doing usernameless + passwordless login today is via ✨ ***blockchain*** ✨ and ✨ ***Web 3.0*** ✨. A colleague of mine, <Profile name="luc" /> wrote a nice [blog post](https://luc.computer/p/web3-auth) about it.
 
-## Implementation with Node and React
+## Implementation with React and Node
 Alright, time for the fun part(sometimes), the code! Note that I will assume you have or know how to set up a login system.
 
 ### Installing dependencies
