@@ -28,6 +28,14 @@
             box-sizing: border-box;
         }
 
+        *::-webkit-scrollbar {
+            background-color: #151a22;
+        }
+        
+        *::-webkit-scrollbar-thumb {
+            background-color: #272b33;
+        }
+
         body {
             background-color: #0A0D13;
             color: white;
