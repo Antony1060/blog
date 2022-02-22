@@ -41,6 +41,11 @@
         padding: 1.25em 1em;
     }
 
+    :global(pre code) {
+        margin-right: 1em;
+        box-decoration-break: clone;
+    }
+
     :global(blockquote) {
         border-left: 3px solid #424752;
         padding: 0.6rem 1rem;
