@@ -55,7 +55,7 @@
     <meta name="description" content={post.description}>
 
     <!-- OG, Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://antony.cloud{$page.url.pathname}">
     <meta property="og:title" content="Antony | Blog - {post.title}">
     <meta property="og:description" content={post.description}>
