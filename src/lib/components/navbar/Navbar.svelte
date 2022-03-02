@@ -10,10 +10,8 @@
         </div>
         <div class="links">
             <Link href="https://antony.wiki">Resume</Link>
-            <Link href="https://antony.cloud" hideOnMobileMore>Blog</Link>
+            <Link href="https://antony.cloud" hideOnPortrait>Blog</Link>
             <Link href="https://antony.contact">Contact</Link>
-            <Link href="https://antony.domains" hideOnMobile>Domains</Link>
-            <Link href="https://antony.cash" hideOnMobile>Donate</Link>
         </div>
     </div>
     <div class="divider"></div>
