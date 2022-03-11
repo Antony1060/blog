@@ -102,7 +102,7 @@
                     <span>A special thanks to&#58;</span>
                     <ul>
                         {#each post.credits as { name, role } (name)}
-                            <li>{ role }: { name }</li>
+                            <li>{ role }: <b>{ name }</b></li>
                         {/each}
                     </ul>
                 </div>
