@@ -1,5 +1,5 @@
 ---
-title: Putovanje
+title: Avantura
 description: Uvod i avantura iza ovog bloga
 author: Antony
 created: 2022-02-02 20:50:42
@@ -9,7 +9,7 @@ credits:
       name: Vice Limov
 tags: [frontend, svelte, markdown, svg]
 lang: [en]
-hidden: true
+hidden: false
 ---
 
 <script>
@@ -26,96 +26,96 @@ hidden: true
     }
 </script>
 
-I tako to počinje! Ok, trebao početi s pitanjem koje se vrjerojatno svi pitate, tko sam uopće ja?
+I tako to počinje! U redu, trebao bih početi pitanjem koje se svi vjerojatno pitate: tko sam uopće ja?
 
 ## Tko?
-I'm a <span>{ selfAge() }</span> year old :sparkles: **aspiring** :sparkles: full stack dev sort of gravitating towards the backend part of fullstack.
-Currently I've done a few commission type jobs for a few people, out of which I'd like to give a shoutout to some of the best people I've ever worked with, <Profile name="lego" /> and <Profile name="isaac" />. These people provided me with soo many opportunities and I definetely wouldn't be where I am today without them.
+Ja sam <span>{ selfAge() }</span> godišnjak koji :sparkles: **stremi** :sparkles: postati full stack developer koji većinom gravitira prema backend dijelu full stacka.
+Trenutno sam napravio nekoliko honorarnih poslova  za par ljudi, od kojih bih htio istaknuti neke od najbolih ljudi s kojima sam ikada radio: <Profile name="lego" /> te <Profile name="isaac" />. Ovi su mi ljudi pružili tooliko prilika i definitivno ne bih bio tamo gdje sam danas bez njih.
 
-I'm currently still open for comissions, but I'm really starting to love open source development so I'm doing a bit of that too.
+Trenutno primam honorarne poslove, ali mi se stvarno počinje sviđati open source development pa trenutno radim malo i na tome.
 
-Alright, enough about me, let's get into [why](#why), [what](#what) and [where](#where) this blog came into existance.
+U redu, dosta o meni, uđimo u razloge [zbog čega](#zbog-čega), [što  je](#što) i [gdje](#gdje) postoji ovaj blog.
 
-## Zašto?
-So, why did I make this blog?
+## Zbog čega?
+Dakle, zbog čega sam napravio ovaj blog?
 
-I felt like writing my random thoughts and giving them to the world,
-also I feel like having a blog would help with my reputation as a developer.
-It was also a really good excuse to try doing something with [Svelte](https://svelte.dev/), which, so far, has been really amazing.
+Pisalo mi se o vlastitim nasumičnim mislima te sam ih htio podijeliti s svijetom,
+također mislim da bi blog pomogao mom vlastitom ugledu na internetu.
+To je također bila odlična izlika da pokušam nešto sa [Svelte-om](https://svelte.dev/), koji je, dosad, doista bio odličan.
 
 ## Što?
-I won't get too much into detail about how this was made since it's literally just a static [SvelteKit](https://kit.svelte.dev) project that parses markdown files(the posts), but I do think you'll enjoy reading about my pain and suffering durign the process. :wink:
+Neću ulaziti u previše detalja o izradi ovog bloga zato što je jednostavno statički [SvelteKit](https://kit.svelte.dev) projekt koji obrađuje markdown datoteke (objave), ali mislim da ćete uživati čitajući o mojoj boli i patnji tijekom procesa. :wink:
 
 #### Zašto Svelte?
-Well, I wanted to learn Svelte... buuut I also needed a good way of handling SSG (Server side generation) and for that I basically had 2 options: [Astro](https://astro.build/) and well... Svelte.
-These were the only two options that I knew could handle SSG well.
-A couple of my colleagues used Astro for building [their](https://luc.computer) [blogs](https://helgesson.dev/p) and I've heard that Astro still doesn't have good IDE support. So me being me, I didn't even give it a chance and went straight into Svelte.
+Pa, htio sam naučiti Svelte... aaali sam također trebao dobar način baratanja SSG-om (Server side generation) i za to sam načelno imao 2 opcije: [Astro](https://astro.build/) i... Svelte.
+Ovo su jedine dvije opcije za koje sam znao da dobro odrađuju taj SSG dio.
+Par je mojih kolega koristilo Astro za [svoje](https://luc.computer) [blogove](https://helgesson.dev/p) i čuo sam da Astro još uvijek nema dobru poršku za IDE-ove. Nište čudno za mene: nisam mu ni dao priliku te sam odmah ušao u Svelte.
 
-And I have to say, I was not disappointed, Svelte has a few of it's quirks (but so does every other framework) but it's a really nice and intuitive framework.
-I would even go as far as to say it stands a chance to be my second favourite framework, right next to React.
+I moram reći, nisam bio razočaran. Svelte ima par mana (svaki framework ih ima) ali je stvarno intuitivan i dobar.
+Otišao bih toliko daleko i rekao da postoji šansa da bude moj drugi najdraži framework nakon Reacta.
 
 #### Tech stack (tj. tehnološki stog, wtf)
-Currently the tech stack looks like this:
+Trenutni tech stack izgleda ovako:
 - Svelte(Kit)
-    - the actual web framework
-    - handles SSG, compression and other optimizations
+    - web framework
+    - barata SSG-om, kompresijom i ostalim optimizacijama
 - MDsveX
-    - the Svelte version of MDX
-    - does Markdown preprocessing <span style="opacity: 0;">; also, has really sometimes poor fu*king typescript support</span>
-    - customized with a few [Remark](https://github.com/remarkjs/remark) and [Rehype](https://github.com/rehypejs/rehype) plugins
+    - Svelte verzija MDX-a
+    - prerađuje Markdown <span style="opacity: 0;">; također, ponekad ima stvarno j*beno lošu podršku za typescript</span>
+    - prilagođeno s nekoliko [Remark](https://github.com/remarkjs/remark) i [Rehype](https://github.com/rehypejs/rehype) plugina
 - OpenGraph Images
-    - Custom built solution for generating banners on the fly
-- Fonts
+    - Rješenje za brzo generiranje bannera
+- Fontovi
     - JetBrains Mono
     - Roboto
 
-Wow, that list is short. At the time of writing this, I genuinely expected this to be longer...Well I hope this shows that making a blog is really not that complicated. (don't use wordpress though, please).
+Wow, taj popis je kratak. Dok sam pisao ovo, uistinu sam očekivao da će biti malo dulji... Nadam se da ovo pokazuje da napraviti blog stvarno nije toliko komplicirano. (ipak, nemojte koristiti Wordpress, molim vas).
 
 ## Gdje?
-Ooo, this is exciting! Time to talk about how I deploy this thing. :truck:
+Ooo, ovo je uzbudljivo! Sada malo o tome kako postavljam ovu stvar. :truck:
 
-At first, while I was still developing this, I used [Netlify](https://netlify.com). And I originally planned to use this to serve the production site.
-But that's boring, *it just works*, that's not fun.
+Isprva, dok sam još radio na ovome, koristio sam [Netlify](https://netlify.com). U početku sam planirao koristiti ovo za posluživanje stranice.
+Ali to je dosadno, *samo funkcionira*, to nije zabavno.
 
-Seriously though, I have nothing against netlify, it really is a *just works* platform.
-But that doesn't mean it's flawless. One of the things I find slightly frustrating about it is that it has obnoxiously long load times here in Europe (that might just be my bad internet tho :shrug:).
+Ali ozbiljno, nemam ništa protiv Netlify-a, to je stvarno platforma koja "samo funkcionira".
+Ali to ne znači da je bez mana. Jedna od stvari koje su malo frustrirajuće su odvratno duga vremena učitavanja ovdje u Europi (ali to može biti i do mog lošeg interneta :shrug:).
 
 #### Signal :eyes:
-My current solution of choice is Signal. And no, not **that** [Signal](https://signal.org).
-See, a good friend of mine <Profile name="luc" /> took on a personal project of making a..\..\..\..
+Trenutno, rješenje koje sam odabrao je Signal. I ne, ne **taj** [Signal](https://signal.org).
+Vidite, moj dobar prijatelj <Profile name="luc" /> je započeo osobni projekt u kojem radi..\..\..\..
 
 ![Discord DM](https://media.antony.red/CjunME.png)
 
-..., ok whatever, basically it deploys your website and serves it, here's the [GitHub repo](https://github.com/lvkdotsh/signal-edge/). Anyways so I chose that to host my website.
-And so far, it's been amazing. Deploy times are extremely quick, autodeployment was really simple to set up and the loading times are ⚡ blazing fast.
+..., ok štogod, on više-manje postavlja vašu web-stranicu i poslužuje ju, ovdje je [GitHub repo](https://github.com/lvkdotsh/signal-edge/). Uglavnom, to sam odabrao da poslužuje moju web-stranicu.
+I dosad je bilo odlično. Vremena postavljanja su izrazito brza, CD je bilo jednostavno namjestiti i vremena učitavanja su ⚡ munjevito brza.
 
-At the time of writing, there's one instance of it deployed on a shared k8s cluster of ours so there's no public interface for it.
+Dok ovo pišem, postoji jedna njegova instanca postavljena na našem dijeljenom Kubernetes clusteru bez ikakvog javnog sučelja.
 
 ## SVGevi :heart:
 
-So, you know [OpenGraph](https://ogp.me/)? That protocol "that enables any web page to become a rich object in a social graph".
-If this doesn't sound familiar, think of it as a spec for those nice looking Discord/Slack/Twitter/Facebook embeds that get generated once you paste a link to some site.
-And if you haven't already noticed, this blog has those, and they change for every blog post. Example for this specific post: 
+Znate za [OpenGraph](https://ogp.me/)? Taj protokol "that enables any web page to become a rich object in a social graph". (bilj. prev. Najbliže kako ovo mogu prevesti je: *"koji omogućava bilo kojoj web stranici da postane obogaćeni objekt u društvenom grafu".*)
+Ako ovo ne zvuči poznato, razmišljate o tome kao specifikacija za te lijepe Discord/Slack/Twitter/Facebook embedove koji se generiraju kada pošaljete/primite poveznicu za neku stranicu.
+I ako već niste primjetili, ovaj blog ih ima i oni se mijenjanju za svaku objavu. Primjer za ovu objavu: 
 
 ![OpenGraph card](https://cards.antony.cloud/post?title={title}&description={description}&type=png)
 
-As you can see, it has the title and the description in the image itself.
+Kao što možete vidjeti, u samoj slici je naslov i opis.
 
-So how did I achieve this?<br/>***SVGs***
+Pa kako sam ovo postigao?<br/>***SVG-ovi***
 
-I'm still a bit fascinated how you can generate images just using text, no actual computation needed.
+Još uvijek sam fasciniran time što mogu generirati slike samo koristeći tekst, bez ikakve komputacije.
 
-If you take a look at the url of that image:
+Ako pogledate URL te slike:
 ```
 https://cards.antony.cloud/post?title={title}&description={description}&type=png
 ```
-you can see that it goes to a [service that I wrote](https://github.com/Antony1060/svg-gen) and provides it with a title and a description and it dynamically generates the image.
-This is handled by SSG so built html pages will have them already filled in.
-Keep in mind that images are in SVG format by default, and OpenGraph does not support using SVGs as an image.... crap.
-I figured converting an SVG to a PNG would not be hard, and I was right, it was not hard. But since I originally wrote this as a serverless function on Netlify (which was hell, I'm never doing that again), the environment was missing a font I needed so the final PNG images were looking terribly broken. In the end I ended up just writing a fastify app to serve the images.
+možete vidjeti da ide do [servisa kojeg sam napisao](https://github.com/Antony1060/svg-gen) i daje mu naslov i opis te dinamički generira sliku.
+Ovime barata SSG pa će ih izgrađene HTML stranice već imati popunjenima.
+Imajte na umu da su slike u zadanom, SVG formatu i OpenGraph ne podržava korištenje SVG-ova kao slike.... shit.
+Mislio sam da će pretvaranje SVG-ova u PNG-ove ne bi bilo teško. I bio sam u pravu, nije bilo teško. No, budući da sam u početku ovo napisao kao serverless funkciju na Netlifyu (to je bio pakao, nikad više), u okruženju je nedostajao font koji sam trebao pa su završne PNG slike izgledale grozno. Na kraju sam napisao jednostvan API u [Fastifyu](https://www.npmjs.com/package/fastify) da poslužuje slike
 
-**What did we learn from this?** <br/>
-SVGs :heart:, Serverless :poop:
+**Što smo naučili iz ovoga?** <br/>
+SVG-ovi :heart:, Serverless :poop:
 
 ## Zaključak
-Alright folks, that's it. If you made it this far, I'd just like to thank you for reading this post, hopefully you enjoyed it. Have a nice rest of your day :smile:
+U redu ljudi, to je to. Ako ste došli ovako daleko, htio bih vam zahvaliti što ste pročitali ovu objavu, nadam ste da ste uživali. Ugodan vam ostatak dana! :smile:
