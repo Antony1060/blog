@@ -61,7 +61,7 @@ Here's a simple diagram of how everything works.
 <img src="https://media.antony.red/webauthn_2fa_dark.png" alt="WebAuthn diagram" style="max-width: 600px" />
 
 ### Usernameless
-Ok, this is what everyone is excided about, passwordless ***and*** usernameless login. Yes, you can log in without even a username!
+Ok, this is what everyone is excited about, passwordless ***and*** usernameless login. Yes, you can log in without even a username!
 In this case, the authenticator will store a small piece of information called a `userHandle` which will be the user you want your authenticator to log you in as.
 So here, instead of already knowing who we want to log in as, the authenticator tells the RP who it wants to log in as.
 
