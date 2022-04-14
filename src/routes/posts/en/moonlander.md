@@ -33,10 +33,6 @@ Some of the tools we used to achieve this were [Scylla](https://www.scylladb.com
 And we used [Sentry](https://sentry.io/) for logging and tracking. It's a very useful piece of software when set up correctly.
 
 ## The name
-Ok, but why the name? What the heck does ***Moonlander*** even mean?
-
-So, you know those [WSB](https://reddit.com/r/wallstreetbets) apes or those Crypto Bros that say ***TO THE MOON 🚀 🌕*** whenever they want a stock or a cryptocurrency to increase in price? Yes, everyone knows. The name Moonlander is literally just a spin-off on that
-
-> We want our code to run fast. ⚡
+Ok, but why the name?
 
 ## The idea
