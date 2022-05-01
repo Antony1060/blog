@@ -6,6 +6,8 @@
     import { changeTimezone, format } from "../util/date";
     import ArrowUpIcon from "svelte-feather-icons/src/icons/ArrowUpIcon.svelte";
     import DownloadIcon from "svelte-feather-icons/src/icons/DownloadIcon.svelte";
+    import { onDestroy, onMount } from "svelte";
+    import { readStatuses } from "../../stores/readStatus";
 
     export let post: Post;
 
@@ -40,6 +42,15 @@
             link.click();
         })().finally(() => fetchingRaw = false);
     }
+
+    let readTimeout: number;
+    onMount(() => {
+        readTimeout = window.setTimeout(() => {
+            readStatuses.update(val => [...val, post.title]);
+        }, 6000);
+    });
+
+    onDestroy(() => clearTimeout(readTimeout))
 </script>
 
 <svelte:head>

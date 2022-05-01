@@ -1,6 +1,8 @@
 <script lang="ts">
     import type { PostWithMeta } from "../../routes/posts/Post.type";
+    import { readStatuses } from "../../stores/readStatus";
     import { format, changeTimezone } from "../util/date";
+    import CheckIcon from "svelte-feather-icons/src/icons/CheckIcon.svelte";
 
     export let post: PostWithMeta;
 
@@ -11,7 +13,7 @@
 
 <div class="post-container">
     <div class="top">
-        <a href={`/posts/en/${post.route}`}>
+        <a href={`/posts/en/${post.route}`} class:post-read={$readStatuses?.includes(meta.title)}>
             {meta.title}
         </a>
         <span>{createdFormatted}</span>
@@ -40,6 +42,10 @@
             transition: 60ms linear;
             text-decoration-color: $color;
         }
+
+        &.post-read {
+            opacity: 0.7;
+        }
     }
 
     .post-container {
@@ -56,7 +62,7 @@
         gap: 10px;
 
         span:nth-child(2) {
-            opacity: 0.6;
+            opacity: 0.7;
             flex-shrink: 0;
         }
 
