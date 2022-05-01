@@ -2,7 +2,6 @@
     import type { PostWithMeta } from "../../routes/posts/Post.type";
     import { readStatuses } from "../../stores/readStatus";
     import { format, changeTimezone } from "../util/date";
-    import CheckIcon from "svelte-feather-icons/src/icons/CheckIcon.svelte";
 
     export let post: PostWithMeta;
 
