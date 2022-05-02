@@ -46,7 +46,7 @@ I won't get too much into detail about how this was made since it's literally ju
 #### So why Svelte?
 Well, I wanted to learn Svelte... buuut I also needed a good way of handling SSG (Server side generation) and for that I basically had 2 options: [Astro](https://astro.build/) and well... Svelte.
 These were the only two options that I knew could handle SSG well.
-A couple of my colleagues used Astro for building [their](https://luc.computer) [blogs](https://helgesson.dev/p) and I've heard that Astro still doesn't have good IDE support. So me being me, I didn't even give it a chance and went straight into Svelte.
+A couple of my colleagues used Astro for building [their](https://luc.computer) [blogs](https://blog.helgesson.dev) and I've heard that Astro still doesn't have good IDE support. So me being me, I didn't even give it a chance and went straight into Svelte.
 
 And I have to say, I was not disappointed, Svelte has a few of it's quirks (but so does every other framework) but it's a really nice and intuitive framework.
 I would even go as far as to say it stands a chance to be my second favourite framework, right next to React.
