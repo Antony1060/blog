@@ -62,5 +62,14 @@ export const Profiles: { [k: string]: ProfileInfo } = {
             twitter: "https://twitter.com/nikitonsky"
         }
 
+    },
+    "josgerards": {
+        display: "Jos Gerards",
+        pfp: "https://media.antony.red/josgerards.jpg",
+        links: {
+            linkedin: "https://www.linkedin.com/in/josgerards",
+            twitter: "https://twitter.com/josgerards88",
+            email: "mailto:josgerards@outlook.com"
+        }
     }
 }
