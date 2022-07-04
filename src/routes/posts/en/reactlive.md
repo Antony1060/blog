@@ -21,7 +21,7 @@ Apart from me being lazy, one big thing that happened was [React Live](https://r
 
 Before I continue, I would just like to thank the really amazing folks at [(PP) Passionate People](https://passionatepeople.io) and <Profile name="luc" /> for making all this possible. Thanks to them, I managed to get basically free VIP enterence into the conference. Of couse, we had to pay ourselves for the flight and the stay, but it was very much worth it. This was also a really good opportunity to go visit another country espessially after the Covid outbreak.
 
-***Note:***I'll mostly talk in 1st person plural throughout this post since **we** will refer to my family and me
+***Note:*** I'll mostly talk in 1st person plural throughout this post since **we** will refer to my family and me
 
 ### The trip
 We began our trip Thursday morning, March 31st, the day before the conference. Apart from this being my first conference, it was also my very first time in an airplane.
