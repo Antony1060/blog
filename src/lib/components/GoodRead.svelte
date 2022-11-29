@@ -4,22 +4,33 @@
     type GoodRead = { url: string, post: string, author: string, invisibleFavicon?: boolean };
 
     const reads: GoodRead[] = [
-    {
-        post: "Why we at $FAMOUS_COMPANY Switched to $HYPED_TECHNOLOGY",
-        url: "https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/",
-        author: "Saagar Jha",
-        invisibleFavicon: true
-    },
-    {
-        post: "Software disenchantment",
-        url: "https://tonsky.me/blog/disenchantment/",
-        author: "Niki Tonsky"
-    },
-    {
-        post: "Web3 Authentication",
-        url: "https://luc.computer/p/web3-auth",
-        author: "Luc van Kampen"
-    }]
+        {
+            post: "Figuring out round, floor and ceil with integer division",
+            url: "http://blog.pkh.me/p/36-figuring-out-round%2C-floor-and-ceil-with-integer-division.html",
+            author: "twitter/@insouris"
+        },
+        {
+            post: "Fleet Below Deck, Part III — State Management",
+            url: "https://blog.jetbrains.com/fleet/2022/06/fleet-below-deck-part-iii-state-management/",
+            author: "Vitaly Bragilevsky"
+        },
+        {
+            post: "Why we at $FAMOUS_COMPANY Switched to $HYPED_TECHNOLOGY",
+            url: "https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/",
+            author: "Saagar Jha",
+            invisibleFavicon: true
+        },
+        {
+            post: "Software disenchantment",
+            url: "https://tonsky.me/blog/disenchantment/",
+            author: "Niki Tonsky"
+        },
+        {
+            post: "Web3 Authentication",
+            url: "https://luc.computer/p/web3-auth",
+            author: "Luc van Kampen"
+        }
+    ]
 </script>
 
 <div class="content-container">
