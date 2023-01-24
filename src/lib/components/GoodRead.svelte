@@ -5,6 +5,11 @@
 
     const reads: GoodRead[] = [
         {
+            post: "Rethinking how technology uses our personal data",
+            url: "https://thecloudfall.com/",
+            author: "Lennart Ziburski"
+        },
+        {
             post: "Figuring out round, floor and ceil with integer division",
             url: "http://blog.pkh.me/p/36-figuring-out-round%2C-floor-and-ceil-with-integer-division.html",
             author: "twitter/@insouris"
@@ -24,11 +29,6 @@
             post: "Software disenchantment",
             url: "https://tonsky.me/blog/disenchantment/",
             author: "Niki Tonsky"
-        },
-        {
-            post: "Web3 Authentication",
-            url: "https://luc.computer/p/web3-auth",
-            author: "Luc van Kampen"
         }
     ]
 </script>
